@@ -12,7 +12,8 @@ Este software é um utilitário para desenvolvimento de softwares, é um gerador
 
 ## :floppy_disk: Tecnologias de saída
 Ele gera códigos em
-- VB.NET
 - C#
+- VB.NET
+
 
 
