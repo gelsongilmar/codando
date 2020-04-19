@@ -139,7 +139,6 @@ Partial Class formConfigurarConexao
         '
         'btn_salvar
         '
-        Me.btn_salvar.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.btn_salvar.Enabled = False
         Me.btn_salvar.Location = New System.Drawing.Point(158, 394)
         Me.btn_salvar.Name = "btn_salvar"
@@ -150,7 +149,6 @@ Partial Class formConfigurarConexao
         '
         'btn_cancelar
         '
-        Me.btn_cancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.btn_cancelar.Enabled = False
         Me.btn_cancelar.Location = New System.Drawing.Point(239, 394)
         Me.btn_cancelar.Name = "btn_cancelar"
@@ -209,7 +207,6 @@ Partial Class formConfigurarConexao
         '
         'btn_excluir
         '
-        Me.btn_excluir.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.btn_excluir.Location = New System.Drawing.Point(262, 57)
         Me.btn_excluir.Name = "btn_excluir"
         Me.btn_excluir.Size = New System.Drawing.Size(53, 23)
@@ -228,7 +225,6 @@ Partial Class formConfigurarConexao
         '
         'btn_novaSolucao
         '
-        Me.btn_novaSolucao.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.btn_novaSolucao.Location = New System.Drawing.Point(144, 57)
         Me.btn_novaSolucao.Name = "btn_novaSolucao"
         Me.btn_novaSolucao.Size = New System.Drawing.Size(53, 23)
@@ -298,7 +294,6 @@ Partial Class formConfigurarConexao
         '
         'formConfigurarConexao
         '
-        Me.AcceptButton = Me.btn_salvar
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
