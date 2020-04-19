@@ -196,6 +196,8 @@ Public Class formGeracao
     End Sub
 
     Private Sub cmbSolucao_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbSolucao.SelectedIndexChanged
+        If _configSelecionada Is Nothing Then Return
+        If _configSelecionada.NomeSolucao = cmbSolucao.SelectedItem.NomeSolucao Then Return
         Me.CarregarInformacoes()
     End Sub
 
