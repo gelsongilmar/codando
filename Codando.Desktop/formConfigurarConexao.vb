@@ -24,6 +24,7 @@ Public Class formConfigurarConexao
 
         If _configSelecionada Is Nothing Then Return
 
+        Me.PreencherConfigSelecionada()
         Dim arquivoXML As New ConexaoSolucao
         arquivoXML.Carregar(_configSelecionada)
         MessageBox.Show(arquivoXML.TestarConexao.Mensagem)
@@ -104,6 +105,17 @@ Public Class formConfigurarConexao
 
         Dim config As New Configuracao
         config.AtualizarConfigCodando(_configCodando)
+
+        _configSelecionada = Nothing
+        txt_nomeSolucao.Text = ""
+        txt_host.Text = ""
+        txt_instancia.Text = ""
+        txt_nomeBanco.Text = ""
+        txt_usuario.Text = ""
+        txt_senha.Text = ""
+        txt_namespace.Text = ""
+        txt_pastaGeracaoSolucao.Text = ""
+
         MessageBox.Show("Solução removida com sucesso!")
         Inicial()
 
