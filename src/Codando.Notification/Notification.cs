@@ -34,5 +34,15 @@ namespace Codando.Notification
 
         public abstract void Validar();
 
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            foreach (string msg in this.Notifications)
+            {
+                sb.AppendLine(msg);
+            }
+            return sb.ToString();
+        }
+
     }
 }

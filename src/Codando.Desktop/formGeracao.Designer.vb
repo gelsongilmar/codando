@@ -40,7 +40,6 @@ Partial Class formGeracao
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.chkBox_gerarProcedures = New System.Windows.Forms.CheckBox()
         Me.chkBox_gerarTabelas = New System.Windows.Forms.CheckBox()
-        Me.chkBox_gerarTabelasSeparadas = New System.Windows.Forms.CheckBox()
         Me.chkBox_isLocalizarIdentidade = New System.Windows.Forms.CheckBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.rdBtn_vbNet = New System.Windows.Forms.RadioButton()
@@ -48,6 +47,7 @@ Partial Class formGeracao
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.rdBtn_aspNetStandard = New System.Windows.Forms.RadioButton()
         Me.rdBtn_aspNetCore = New System.Windows.Forms.RadioButton()
+        Me.chk_gerarClasseDAL = New System.Windows.Forms.CheckBox()
         Me.MenuStrip1.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -190,9 +190,9 @@ Partial Class formGeracao
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.chk_gerarClasseDAL)
         Me.GroupBox1.Controls.Add(Me.chkBox_gerarProcedures)
         Me.GroupBox1.Controls.Add(Me.chkBox_gerarTabelas)
-        Me.GroupBox1.Controls.Add(Me.chkBox_gerarTabelasSeparadas)
         Me.GroupBox1.Controls.Add(Me.chkBox_isLocalizarIdentidade)
         Me.GroupBox1.Location = New System.Drawing.Point(409, 153)
         Me.GroupBox1.Name = "GroupBox1"
@@ -206,7 +206,7 @@ Partial Class formGeracao
         Me.chkBox_gerarProcedures.AutoSize = True
         Me.chkBox_gerarProcedures.Checked = True
         Me.chkBox_gerarProcedures.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.chkBox_gerarProcedures.Location = New System.Drawing.Point(15, 99)
+        Me.chkBox_gerarProcedures.Location = New System.Drawing.Point(15, 76)
         Me.chkBox_gerarProcedures.Name = "chkBox_gerarProcedures"
         Me.chkBox_gerarProcedures.Size = New System.Drawing.Size(154, 17)
         Me.chkBox_gerarProcedures.TabIndex = 3
@@ -216,22 +216,14 @@ Partial Class formGeracao
         'chkBox_gerarTabelas
         '
         Me.chkBox_gerarTabelas.AutoSize = True
-        Me.chkBox_gerarTabelas.Location = New System.Drawing.Point(15, 76)
+        Me.chkBox_gerarTabelas.Checked = True
+        Me.chkBox_gerarTabelas.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.chkBox_gerarTabelas.Location = New System.Drawing.Point(15, 53)
         Me.chkBox_gerarTabelas.Name = "chkBox_gerarTabelas"
         Me.chkBox_gerarTabelas.Size = New System.Drawing.Size(118, 17)
         Me.chkBox_gerarTabelas.TabIndex = 2
         Me.chkBox_gerarTabelas.Text = "Gerar Script Tabela"
         Me.chkBox_gerarTabelas.UseVisualStyleBackColor = True
-        '
-        'chkBox_gerarTabelasSeparadas
-        '
-        Me.chkBox_gerarTabelasSeparadas.AutoSize = True
-        Me.chkBox_gerarTabelasSeparadas.Location = New System.Drawing.Point(15, 53)
-        Me.chkBox_gerarTabelasSeparadas.Name = "chkBox_gerarTabelasSeparadas"
-        Me.chkBox_gerarTabelasSeparadas.Size = New System.Drawing.Size(300, 17)
-        Me.chkBox_gerarTabelasSeparadas.TabIndex = 1
-        Me.chkBox_gerarTabelasSeparadas.Text = "Gerar Script de Banco em Arquivos Separados por Tabela"
-        Me.chkBox_gerarTabelasSeparadas.UseVisualStyleBackColor = True
         '
         'chkBox_isLocalizarIdentidade
         '
@@ -311,6 +303,18 @@ Partial Class formGeracao
         Me.rdBtn_aspNetCore.Text = "ASP.NET CORE"
         Me.rdBtn_aspNetCore.UseVisualStyleBackColor = True
         '
+        'chk_gerarClasseDAL
+        '
+        Me.chk_gerarClasseDAL.AutoSize = True
+        Me.chk_gerarClasseDAL.Checked = True
+        Me.chk_gerarClasseDAL.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.chk_gerarClasseDAL.Location = New System.Drawing.Point(15, 99)
+        Me.chk_gerarClasseDAL.Name = "chk_gerarClasseDAL"
+        Me.chk_gerarClasseDAL.Size = New System.Drawing.Size(110, 17)
+        Me.chk_gerarClasseDAL.TabIndex = 4
+        Me.chk_gerarClasseDAL.Text = "Gerar Classe DAL"
+        Me.chk_gerarClasseDAL.UseVisualStyleBackColor = True
+        '
         'formGeracao
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -365,7 +369,6 @@ Partial Class formGeracao
     Friend WithEvents btn_desmarcarTodas As System.Windows.Forms.Button
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
     Friend WithEvents chkBox_isLocalizarIdentidade As System.Windows.Forms.CheckBox
-    Friend WithEvents chkBox_gerarTabelasSeparadas As System.Windows.Forms.CheckBox
     Friend WithEvents chkBox_gerarProcedures As System.Windows.Forms.CheckBox
     Friend WithEvents chkBox_gerarTabelas As System.Windows.Forms.CheckBox
     Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
@@ -376,4 +379,5 @@ Partial Class formGeracao
     Friend WithEvents rdBtn_aspNetCore As System.Windows.Forms.RadioButton
     Friend WithEvents cmbSolucao As ComboBox
     Friend WithEvents lbl_pastaOutPut As Label
+    Friend WithEvents chk_gerarClasseDAL As CheckBox
 End Class
