@@ -116,7 +116,7 @@ Public Class GeracaoCodigoClassesCSharp
 
         _str.Append("            return ExecutarComando(conexao, comando, true);" + vbCrLf)
         _str.Append("        }" + vbCrLf)
-        _str.Append("        public bool Updade()" + vbCrLf)
+        _str.Append("        public bool Update()" + vbCrLf)
         _str.Append("        {" + vbCrLf)
         _str.Append("            var conexao = new SqlConnection(this._strConexao);" + vbCrLf)
         _str.Append("            var comando = new SqlCommand(""usp_" + p_nomeTabela + "_Update"", conexao);" + vbCrLf)

@@ -77,7 +77,7 @@ Public Class formGeracao
         If _configSelecionada Is Nothing Then Return
 
         Dim validacao As New ValidaConfiguracao(_configSelecionada)
-        If Not validacao.isValid() Then
+        If Not validacao.IsValid() Then
             ' percorrer validacao.Notifications e exibir as mensagens
             Return
         End If
