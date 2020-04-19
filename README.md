@@ -8,6 +8,11 @@
 </p>
 
 ## :computer: Projeto
-Este software é um utilitário para desenvolvimento de softwares, é uma gerador de CRUD's em VB.NET e C#
+Este software é um utilitário para desenvolvimento de softwares, é um gerador de classes de acesso a dados baseado em um alguns padrões para CRUD.
+
+## :floppy_disk: Tecnologias de saída
+Ele gera códigos em
+- VB.NET
+- C#
 
 
