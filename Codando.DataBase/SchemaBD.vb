@@ -11,23 +11,13 @@ Public Class SchemaBD
     End Sub
 
     Public Function ListarTabelas() As DataTable
-        Dim conexao As New SqlConnection(Me._strConexao)
+        Dim conexao = Me.CreateConnection()
         Dim adp As New SqlDataAdapter("SELECT T.object_id IdTabela, name AS NomeTabela FROM SYS.TABLES T WHERE T.name not in ('sysdiagrams') ORDER BY T.name ASC", conexao)
-        Dim dt As New DataTable
-        Try
-            conexao.Open()
-            adp.Fill(dt)
-        Catch ex As Exception
-            Throw
-        Finally
-            conexao.Close()
-            adp.Dispose()
-        End Try
-        Return dt
+        Return ExecDataTable(conexao, adp)
     End Function
 
     Public Function ListarCampos(p_idTabela As String) As DataTable
-        Dim conexao As New SqlConnection(Me._strConexao)
+        Dim conexao = Me.CreateConnection()
         Dim adp As New SqlDataAdapter("SELECT	C.Object_id AS IdTabela,
 		                                        C.column_id AS IdCampo,
 		                                        C.name AS NomeCampo,
@@ -47,6 +37,10 @@ Public Class SchemaBD
                                         WHERE C.object_id = @idTabela
                                         ORDER BY C.column_id ASC", conexao)
         adp.SelectCommand.Parameters.Add("@idTabela", SqlDbType.VarChar, 100).Value = p_idTabela
+        Return ExecDataTable(conexao, adp)
+    End Function
+
+    Private Function ExecDataTable(conexao As SqlConnection, adp As SqlDataAdapter) As DataTable
         Dim dt As New DataTable
         Try
             conexao.Open()
@@ -58,6 +52,10 @@ Public Class SchemaBD
             adp.Dispose()
         End Try
         Return dt
+    End Function
+
+    Private Function CreateConnection() As SqlConnection
+        Return New SqlConnection(Me._strConexao)
     End Function
 
 End Class
