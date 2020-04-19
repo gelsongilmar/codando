@@ -62,6 +62,7 @@ Public Class formGeracao
         Dim frmConexao As New formConfigurarConexao
         frmConexao.Inicial()
         frmConexao.ShowDialog()
+        Me.CarregarInformacoes()
     End Sub
 
     Private Sub btn_gerarCodigo_Click(sender As Object, e As System.EventArgs) Handles btn_gerarCodigo.Click
