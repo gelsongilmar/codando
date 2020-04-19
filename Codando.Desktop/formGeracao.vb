@@ -13,17 +13,22 @@ Public Class formGeracao
     Private _configSelecionada As ConfigCodandoSolucao = Nothing
 
     Private Sub formGeracao_Shown(sender As Object, e As EventArgs) Handles Me.Shown
-        CarregarInformacoes()
+        If Not Me.DesignMode Then
+            CarregarConfiguracoes()
+            CarregarInformacoes()
+        End If
     End Sub
 
-    Private Sub CarregarInformacoes()
-
+    Private Sub CarregarConfiguracoes()
         _configCodando = New Configuracao().GetConfigCodando()
         CarregarComboSolucoes()
         If cmbSolucao.Items.Count > 0 Then
             cmbSolucao.SelectedIndex = 0
             _configSelecionada = cmbSolucao.SelectedItem
         End If
+    End Sub
+
+    Private Sub CarregarInformacoes()
 
         If _configSelecionada Is Nothing Then
             ExibirConexaoNaoConfigurada()
@@ -36,6 +41,8 @@ Public Class formGeracao
 
             lbl_configuracao.Text = "Conexão Configurada: " + arquivoXML.Host + "\" + arquivoXML.Instancia + " BD: " + arquivoXML.NomeBancoDados
             lbl_configuracao.ForeColor = System.Drawing.Color.Blue
+
+            lbl_pastaOutPut.Text = "Pasta Geração: " + _configSelecionada.PastaGeracaoSolucao
 
             If arquivoXML.TestarConexao.IsSucesso Then
                 CarregarTabelas(arquivoXML.MontarStringConexao)
@@ -62,20 +69,25 @@ Public Class formGeracao
         Dim frmConexao As New formConfigurarConexao
         frmConexao.Inicial()
         frmConexao.ShowDialog()
-        Me.CarregarInformacoes()
+        Me.CarregarConfiguracoes()
     End Sub
 
     Private Sub btn_gerarCodigo_Click(sender As Object, e As System.EventArgs) Handles btn_gerarCodigo.Click
 
         If _configSelecionada Is Nothing Then Return
 
+        Dim validacao As New ValidaConfiguracao(_configSelecionada)
+        If Not validacao.isValid() Then
+            ' percorrer validacao.Notifications e exibir as mensagens
+            Return
+        End If
+
         Dim _arquivoXML As New ConexaoSolucao
         _arquivoXML.Carregar(_configSelecionada)
 
-        Dim _dirSolucao As String = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\Codando\Generations"
-        Dim _dirGeracao As String = Now.ToString("yyyyMMddhhmmss")
+        Dim diretorios As New DiretoriosGeracao(_configSelecionada)
 
-        Me.CriarDiretorios(_dirSolucao, _dirGeracao)
+        Me.CriarDiretorios(diretorios)
 
         Dim strBD As String = ""
         For index = 0 To chkBox_tabelas.CheckedItems.Count - 1
@@ -95,7 +107,7 @@ Public Class formGeracao
                 Else
                     nomeArquivo += ".vb"
                 End If
-                Dim sw As New IO.StreamWriter(_dirSolucao + "/" + _dirGeracao + "/Code/" + nomeArquivo, False)
+                Dim sw As New IO.StreamWriter(diretorios.GetDiretorioProjetoDAL & "/" & nomeArquivo, False)
                 sw.WriteLine(_strClasse)
                 sw.Close()
             End If
@@ -104,7 +116,7 @@ Public Class formGeracao
             If Me.IsGerarBancoDados Then
                 Dim _strTabelaProcedure As String = Me.ObterStrTabelaProcedures(idTabela, nomeTabela, _arquivoXML.MontarStringConexao)
                 If chkBox_gerarTabelasSeparadas.Checked Then
-                    Dim sw As New IO.StreamWriter(_dirSolucao + "/" + _dirGeracao + "/DataBase/" + nomeTabela + ".SQL", False)
+                    Dim sw As New IO.StreamWriter(diretorios.GetDiretorioProjetoBD & "/" & nomeTabela + ".SQL", False)
                     sw.WriteLine(_strTabelaProcedure)
                     sw.Close()
                 Else
@@ -115,14 +127,14 @@ Public Class formGeracao
 
         If Me.IsGerarBancoDados Then
             If Not chkBox_gerarTabelasSeparadas.Checked Then
-                Dim sw As New IO.StreamWriter(_dirSolucao + "/" + _dirGeracao + "/DataBase/ScriptDataBase.SQL", False)
+                Dim sw As New IO.StreamWriter(diretorios.GetDiretorioProjetoBD & "/ScriptDataBase.SQL", False)
                 sw.WriteLine(strBD)
                 sw.Close()
             End If
         End If
 
         MessageBox.Show("Geração realizada com sucesso", "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information)
-        System.Diagnostics.Process.Start((_dirSolucao + "/" + _dirGeracao).Replace("\", "/"))
+        System.Diagnostics.Process.Start((_configSelecionada.PastaGeracaoSolucao).Replace("\", "/"))
 
     End Sub
 
@@ -130,16 +142,21 @@ Public Class formGeracao
         Return chkBox_gerarTabelas.Checked OrElse chkBox_gerarProcedures.Checked
     End Function
 
-    Private Sub CriarDiretorios(_dirSolucao As String, _dirGeracao As String)
-        If Not IO.Directory.Exists(_dirSolucao + "/" + _dirGeracao) Then
-            IO.Directory.CreateDirectory(_dirSolucao + "/" + _dirGeracao)
+    Private Sub CriarDiretorios(ditretorios As DiretoriosGeracao)
+
+        Dim _diretorioProjetoDAL As String = ditretorios.GetDiretorioProjetoDAL
+        Dim _diretorioProjetoWEB As String = ditretorios.GetDiretorioProjetoWEB
+        Dim _diretorioProjetoBD As String = ditretorios.GetDiretorioProjetoBD
+
+        If Not IO.Directory.Exists(_diretorioProjetoDAL) Then
+            IO.Directory.CreateDirectory(_diretorioProjetoDAL)
         End If
-        If Not IO.Directory.Exists(_dirSolucao + "/" + _dirGeracao + "/Code") Then
-            IO.Directory.CreateDirectory(_dirSolucao + "/" + _dirGeracao + "/Code")
+        If Not IO.Directory.Exists(_diretorioProjetoWEB) Then
+            IO.Directory.CreateDirectory(_diretorioProjetoWEB)
         End If
         If Me.IsGerarBancoDados Then
-            If Not IO.Directory.Exists(_dirSolucao + "/" + _dirGeracao + "/DataBase") Then
-                IO.Directory.CreateDirectory(_dirSolucao + "/" + _dirGeracao + "/DataBase")
+            If Not IO.Directory.Exists(_diretorioProjetoBD) Then
+                IO.Directory.CreateDirectory(_diretorioProjetoBD)
             End If
         End If
     End Sub
@@ -160,20 +177,9 @@ Public Class formGeracao
         Return _geradorCodigo.GerarStrTabelasStoredProcedures(idTabela, nomeTabela)
     End Function
 
-    Private Sub btn_limparGeracoes_Click(sender As Object, e As EventArgs) Handles btn_limparGeracoes.Click
-        Dim _dirSolucao As String = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\Codando\Generations"
-        Try
-            For Each dir As IO.DirectoryInfo In New IO.DirectoryInfo(_dirSolucao).GetDirectories
-                dir.Delete(True)
-            Next
-            MessageBox.Show("Limpeza realizada com sucesso", "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information)
-        Catch ex As Exception
-            MessageBox.Show("Fecha o Windows Explorer e Tente novamente", "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        End Try
-    End Sub
-
     Private Sub btn_abrirPasta_Click(sender As Object, e As EventArgs) Handles btn_abrirPasta.Click
-        Dim _dirSolucao As String = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\Codando\Generations"
+        If _configSelecionada Is Nothing Then Return
+        Dim _dirSolucao As String = _configSelecionada.PastaGeracaoSolucao
         System.Diagnostics.Process.Start((_dirSolucao).Replace("\", "/"))
     End Sub
 
@@ -197,8 +203,7 @@ Public Class formGeracao
     End Sub
 
     Private Sub cmbSolucao_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbSolucao.SelectedIndexChanged
-        If _configSelecionada Is Nothing Then Return
-        If _configSelecionada.NomeSolucao = cmbSolucao.SelectedItem.NomeSolucao Then Return
+        _configSelecionada = cmbSolucao.SelectedItem
         Me.CarregarInformacoes()
     End Sub
 

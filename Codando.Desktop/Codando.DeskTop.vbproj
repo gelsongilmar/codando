@@ -153,6 +153,10 @@
       <Project>{01D2A834-51A7-4825-B33A-3AED567E8BBC}</Project>
       <Name>Codando.Gerador</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Codando.Notification\Codando.Notification.csproj">
+      <Project>{d45f248c-9a82-4bbe-944e-95262a5fd980}</Project>
+      <Name>Codando.Notification</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

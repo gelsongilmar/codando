@@ -27,12 +27,13 @@ Partial Class formGeracao
         Me.ConfiguraçãoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConfigurarConexaoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.lbl_pastaOutPut = New System.Windows.Forms.Label()
+        Me.cmbSolucao = New System.Windows.Forms.ComboBox()
         Me.lbl_configuracao = New System.Windows.Forms.Label()
         Me.chkBox_tabelas = New System.Windows.Forms.CheckedListBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.btn_abrirPasta = New System.Windows.Forms.Button()
-        Me.btn_limparGeracoes = New System.Windows.Forms.Button()
         Me.btn_gerarCodigo = New System.Windows.Forms.Button()
         Me.btn_marcarTodas = New System.Windows.Forms.Button()
         Me.btn_desmarcarTodas = New System.Windows.Forms.Button()
@@ -47,7 +48,6 @@ Partial Class formGeracao
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.rdBtn_aspNetStandard = New System.Windows.Forms.RadioButton()
         Me.rdBtn_aspNetCore = New System.Windows.Forms.RadioButton()
-        Me.cmbSolucao = New System.Windows.Forms.ComboBox()
         Me.MenuStrip1.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -81,6 +81,7 @@ Partial Class formGeracao
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.SystemColors.ControlLight
+        Me.Panel1.Controls.Add(Me.lbl_pastaOutPut)
         Me.Panel1.Controls.Add(Me.cmbSolucao)
         Me.Panel1.Controls.Add(Me.lbl_configuracao)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
@@ -89,14 +90,34 @@ Partial Class formGeracao
         Me.Panel1.Size = New System.Drawing.Size(769, 51)
         Me.Panel1.TabIndex = 1
         '
+        'lbl_pastaOutPut
+        '
+        Me.lbl_pastaOutPut.AutoSize = True
+        Me.lbl_pastaOutPut.Font = New System.Drawing.Font("Arial", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_pastaOutPut.ForeColor = System.Drawing.SystemColors.HotTrack
+        Me.lbl_pastaOutPut.Location = New System.Drawing.Point(7, 27)
+        Me.lbl_pastaOutPut.Name = "lbl_pastaOutPut"
+        Me.lbl_pastaOutPut.Size = New System.Drawing.Size(123, 16)
+        Me.lbl_pastaOutPut.TabIndex = 15
+        Me.lbl_pastaOutPut.Text = "Pasta de Geração"
+        '
+        'cmbSolucao
+        '
+        Me.cmbSolucao.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbSolucao.FormattingEnabled = True
+        Me.cmbSolucao.Location = New System.Drawing.Point(492, 16)
+        Me.cmbSolucao.Name = "cmbSolucao"
+        Me.cmbSolucao.Size = New System.Drawing.Size(261, 21)
+        Me.cmbSolucao.TabIndex = 14
+        '
         'lbl_configuracao
         '
         Me.lbl_configuracao.AutoSize = True
-        Me.lbl_configuracao.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_configuracao.Font = New System.Drawing.Font("Arial", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbl_configuracao.ForeColor = System.Drawing.SystemColors.HotTrack
-        Me.lbl_configuracao.Location = New System.Drawing.Point(12, 15)
+        Me.lbl_configuracao.Location = New System.Drawing.Point(7, 8)
         Me.lbl_configuracao.Name = "lbl_configuracao"
-        Me.lbl_configuracao.Size = New System.Drawing.Size(161, 18)
+        Me.lbl_configuracao.Size = New System.Drawing.Size(146, 16)
         Me.lbl_configuracao.TabIndex = 1
         Me.lbl_configuracao.Text = "Conexão Configurada"
         '
@@ -122,7 +143,6 @@ Partial Class formGeracao
         '
         Me.Panel2.BackColor = System.Drawing.SystemColors.ControlLight
         Me.Panel2.Controls.Add(Me.btn_abrirPasta)
-        Me.Panel2.Controls.Add(Me.btn_limparGeracoes)
         Me.Panel2.Controls.Add(Me.btn_gerarCodigo)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.Panel2.Location = New System.Drawing.Point(0, 398)
@@ -133,22 +153,12 @@ Partial Class formGeracao
         'btn_abrirPasta
         '
         Me.btn_abrirPasta.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_abrirPasta.Location = New System.Drawing.Point(169, 8)
+        Me.btn_abrirPasta.Location = New System.Drawing.Point(10, 8)
         Me.btn_abrirPasta.Name = "btn_abrirPasta"
-        Me.btn_abrirPasta.Size = New System.Drawing.Size(123, 34)
+        Me.btn_abrirPasta.Size = New System.Drawing.Size(177, 34)
         Me.btn_abrirPasta.TabIndex = 2
-        Me.btn_abrirPasta.Text = "Abrir Pasta"
+        Me.btn_abrirPasta.Text = "Abrir Pasta Geração"
         Me.btn_abrirPasta.UseVisualStyleBackColor = True
-        '
-        'btn_limparGeracoes
-        '
-        Me.btn_limparGeracoes.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_limparGeracoes.Location = New System.Drawing.Point(12, 8)
-        Me.btn_limparGeracoes.Name = "btn_limparGeracoes"
-        Me.btn_limparGeracoes.Size = New System.Drawing.Size(151, 34)
-        Me.btn_limparGeracoes.TabIndex = 1
-        Me.btn_limparGeracoes.Text = "Limpar Gerações"
-        Me.btn_limparGeracoes.UseVisualStyleBackColor = True
         '
         'btn_gerarCodigo
         '
@@ -301,15 +311,6 @@ Partial Class formGeracao
         Me.rdBtn_aspNetCore.Text = "ASP.NET CORE"
         Me.rdBtn_aspNetCore.UseVisualStyleBackColor = True
         '
-        'cmbSolucao
-        '
-        Me.cmbSolucao.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbSolucao.FormattingEnabled = True
-        Me.cmbSolucao.Location = New System.Drawing.Point(492, 16)
-        Me.cmbSolucao.Name = "cmbSolucao"
-        Me.cmbSolucao.Size = New System.Drawing.Size(261, 21)
-        Me.cmbSolucao.TabIndex = 14
-        '
         'formGeracao
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -359,7 +360,6 @@ Partial Class formGeracao
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
     Friend WithEvents btn_gerarCodigo As System.Windows.Forms.Button
-    Friend WithEvents btn_limparGeracoes As System.Windows.Forms.Button
     Friend WithEvents btn_abrirPasta As System.Windows.Forms.Button
     Friend WithEvents btn_marcarTodas As System.Windows.Forms.Button
     Friend WithEvents btn_desmarcarTodas As System.Windows.Forms.Button
@@ -375,4 +375,5 @@ Partial Class formGeracao
     Friend WithEvents rdBtn_aspNetStandard As System.Windows.Forms.RadioButton
     Friend WithEvents rdBtn_aspNetCore As System.Windows.Forms.RadioButton
     Friend WithEvents cmbSolucao As ComboBox
+    Friend WithEvents lbl_pastaOutPut As Label
 End Class

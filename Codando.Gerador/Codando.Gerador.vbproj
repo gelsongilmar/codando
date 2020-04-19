@@ -64,6 +64,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DiretoriosGeracao.vb" />
     <Compile Include="GeracaoCodigo.vb" />
     <Compile Include="GeracaoCodigoBancoDados.vb" />
     <Compile Include="GeracaoCodigoClassesCSharp.vb" />
@@ -84,6 +85,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="UtilitarioGeracaoCodigo.vb" />
+    <Compile Include="ValidaConfiguracao.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -105,9 +107,17 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Codando.Config\Codando.Config.csproj">
+      <Project>{EEE33311-89C5-4D60-B3EF-8FA1E9A9BB7C}</Project>
+      <Name>Codando.Config</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Codando.DataBase\Codando.DataBase.vbproj">
       <Project>{F43B3D90-EB58-448E-B98D-B18A46C02735}</Project>
       <Name>Codando.DataBase</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Codando.Notification\Codando.Notification.csproj">
+      <Project>{D45F248C-9A82-4BBE-944E-95262A5FD980}</Project>
+      <Name>Codando.Notification</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
