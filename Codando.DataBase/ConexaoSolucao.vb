@@ -1,7 +1,5 @@
-﻿Imports System
-Imports System.Data.SqlClient
+﻿Imports System.Data.SqlClient
 Imports Codando.Config
-Imports Microsoft.VisualBasic
 
 Public Class ConexaoSolucao
 

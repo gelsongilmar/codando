@@ -1,6 +1,4 @@
-﻿Imports System
-Imports System.Data
-Imports System.Data.SqlClient
+﻿Imports System.Data.SqlClient
 
 Public Class SchemaBD
 
