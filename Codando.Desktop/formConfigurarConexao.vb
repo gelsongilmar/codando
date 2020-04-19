@@ -21,9 +21,12 @@ Public Class formConfigurarConexao
     End Sub
 
     Private Sub btn_testar_Click(sender As Object, e As System.EventArgs) Handles btn_testar.Click
-        'Dim arquivoXML As New ConexaoXML
-        'arquivoXML.Carregar()
-        'MessageBox.Show(arquivoXML.TestarConexao.Mensagem)
+
+        If _configSelecionada Is Nothing Then Return
+
+        Dim arquivoXML As New ConexaoSolucao
+        arquivoXML.Carregar(_configSelecionada)
+        MessageBox.Show(arquivoXML.TestarConexao.Mensagem)
     End Sub
 
     Private Sub btn_salvar_Click(sender As Object, e As System.EventArgs) Handles btn_salvar.Click
@@ -55,6 +58,7 @@ Public Class formConfigurarConexao
         txt_usuario.Text = _configSelecionada.Usuario
         txt_senha.Text = _configSelecionada.Senha
         txt_namespace.Text = _configSelecionada.NamespacePrincipal
+        txt_pastaGeracaoSolucao.Text = _configSelecionada.PastaGeracaoSolucao
     End Sub
 
     Private Sub PreencherConfigSelecionada()
@@ -68,6 +72,7 @@ Public Class formConfigurarConexao
         _configSelecionada.Usuario = txt_usuario.Text
         _configSelecionada.Senha = txt_senha.Text
         _configSelecionada.NamespacePrincipal = txt_namespace.Text
+        _configSelecionada.PastaGeracaoSolucao = txt_pastaGeracaoSolucao.Text
 
     End Sub
 
@@ -125,6 +130,8 @@ Public Class formConfigurarConexao
         txt_usuario.Enabled = ativar
         txt_senha.Enabled = ativar
         txt_namespace.Enabled = ativar
+        txt_pastaGeracaoSolucao.Enabled = ativar
+        btn_selecionarPasta.Enabled = ativar
         btn_salvar.Enabled = ativar
         btn_cancelar.Enabled = ativar
     End Sub
@@ -137,6 +144,12 @@ Public Class formConfigurarConexao
             _configSelecionada = cmbSolucao.SelectedItem
         End If
         AtivarCampos(False)
+    End Sub
+
+    Private Sub btn_selecionarPasta_Click(sender As Object, e As EventArgs) Handles btn_selecionarPasta.Click
+        If folder_pasta.ShowDialog = DialogResult.OK Then
+            txt_pastaGeracaoSolucao.Text = folder_pasta.SelectedPath
+        End If
     End Sub
 
 End Class

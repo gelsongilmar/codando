@@ -45,6 +45,10 @@ Partial Class formConfigurarConexao
         Me.cmbSolucao = New System.Windows.Forms.ComboBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.btn_testar = New System.Windows.Forms.Button()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.txt_pastaGeracaoSolucao = New System.Windows.Forms.TextBox()
+        Me.folder_pasta = New System.Windows.Forms.FolderBrowserDialog()
+        Me.btn_selecionarPasta = New System.Windows.Forms.Button()
         Me.pnl_listagem.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -135,8 +139,9 @@ Partial Class formConfigurarConexao
         '
         'btn_salvar
         '
+        Me.btn_salvar.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.btn_salvar.Enabled = False
-        Me.btn_salvar.Location = New System.Drawing.Point(158, 341)
+        Me.btn_salvar.Location = New System.Drawing.Point(158, 394)
         Me.btn_salvar.Name = "btn_salvar"
         Me.btn_salvar.Size = New System.Drawing.Size(75, 23)
         Me.btn_salvar.TabIndex = 10
@@ -147,7 +152,7 @@ Partial Class formConfigurarConexao
         '
         Me.btn_cancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.btn_cancelar.Enabled = False
-        Me.btn_cancelar.Location = New System.Drawing.Point(239, 341)
+        Me.btn_cancelar.Location = New System.Drawing.Point(239, 394)
         Me.btn_cancelar.Name = "btn_cancelar"
         Me.btn_cancelar.Size = New System.Drawing.Size(75, 23)
         Me.btn_cancelar.TabIndex = 11
@@ -204,6 +209,7 @@ Partial Class formConfigurarConexao
         '
         'btn_excluir
         '
+        Me.btn_excluir.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.btn_excluir.Location = New System.Drawing.Point(262, 57)
         Me.btn_excluir.Name = "btn_excluir"
         Me.btn_excluir.Size = New System.Drawing.Size(53, 23)
@@ -222,6 +228,7 @@ Partial Class formConfigurarConexao
         '
         'btn_novaSolucao
         '
+        Me.btn_novaSolucao.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.btn_novaSolucao.Location = New System.Drawing.Point(144, 57)
         Me.btn_novaSolucao.Name = "btn_novaSolucao"
         Me.btn_novaSolucao.Size = New System.Drawing.Size(53, 23)
@@ -249,12 +256,45 @@ Partial Class formConfigurarConexao
         '
         'btn_testar
         '
-        Me.btn_testar.Location = New System.Drawing.Point(20, 341)
+        Me.btn_testar.Location = New System.Drawing.Point(20, 394)
         Me.btn_testar.Name = "btn_testar"
         Me.btn_testar.Size = New System.Drawing.Size(104, 23)
         Me.btn_testar.TabIndex = 18
         Me.btn_testar.Text = "Testar Conexao"
         Me.btn_testar.UseVisualStyleBackColor = True
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(16, 328)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(120, 13)
+        Me.Label9.TabIndex = 20
+        Me.Label9.Text = "Pasta Geração Solução"
+        '
+        'txt_pastaGeracaoSolucao
+        '
+        Me.txt_pastaGeracaoSolucao.Enabled = False
+        Me.txt_pastaGeracaoSolucao.Location = New System.Drawing.Point(18, 344)
+        Me.txt_pastaGeracaoSolucao.Name = "txt_pastaGeracaoSolucao"
+        Me.txt_pastaGeracaoSolucao.Size = New System.Drawing.Size(257, 20)
+        Me.txt_pastaGeracaoSolucao.TabIndex = 19
+        '
+        'folder_pasta
+        '
+        Me.folder_pasta.Description = "Selecione a pasta onde a solução deve ser gerada"
+        Me.folder_pasta.RootFolder = System.Environment.SpecialFolder.MyComputer
+        Me.folder_pasta.SelectedPath = "c:\git\"
+        '
+        'btn_selecionarPasta
+        '
+        Me.btn_selecionarPasta.Enabled = False
+        Me.btn_selecionarPasta.Location = New System.Drawing.Point(281, 344)
+        Me.btn_selecionarPasta.Name = "btn_selecionarPasta"
+        Me.btn_selecionarPasta.Size = New System.Drawing.Size(32, 20)
+        Me.btn_selecionarPasta.TabIndex = 21
+        Me.btn_selecionarPasta.Text = "..."
+        Me.btn_selecionarPasta.UseVisualStyleBackColor = True
         '
         'formConfigurarConexao
         '
@@ -262,7 +302,10 @@ Partial Class formConfigurarConexao
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(341, 385)
+        Me.ClientSize = New System.Drawing.Size(341, 446)
+        Me.Controls.Add(Me.btn_selecionarPasta)
+        Me.Controls.Add(Me.Label9)
+        Me.Controls.Add(Me.txt_pastaGeracaoSolucao)
         Me.Controls.Add(Me.btn_testar)
         Me.Controls.Add(Me.pnl_listagem)
         Me.Controls.Add(Me.Label8)
@@ -320,4 +363,8 @@ Partial Class formConfigurarConexao
     Friend WithEvents btn_alterar As Button
     Friend WithEvents btn_excluir As Button
     Friend WithEvents btn_testar As Button
+    Friend WithEvents Label9 As Label
+    Friend WithEvents txt_pastaGeracaoSolucao As TextBox
+    Friend WithEvents folder_pasta As FolderBrowserDialog
+    Friend WithEvents btn_selecionarPasta As Button
 End Class

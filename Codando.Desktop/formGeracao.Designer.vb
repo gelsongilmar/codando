@@ -28,7 +28,6 @@ Partial Class formGeracao
         Me.ConfigurarConexaoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.lbl_configuracao = New System.Windows.Forms.Label()
-        Me.btn_carregar = New System.Windows.Forms.Button()
         Me.chkBox_tabelas = New System.Windows.Forms.CheckedListBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
@@ -48,6 +47,7 @@ Partial Class formGeracao
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.rdBtn_aspNetStandard = New System.Windows.Forms.RadioButton()
         Me.rdBtn_aspNetCore = New System.Windows.Forms.RadioButton()
+        Me.cmbSolucao = New System.Windows.Forms.ComboBox()
         Me.MenuStrip1.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -81,8 +81,8 @@ Partial Class formGeracao
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.SystemColors.ControlLight
+        Me.Panel1.Controls.Add(Me.cmbSolucao)
         Me.Panel1.Controls.Add(Me.lbl_configuracao)
-        Me.Panel1.Controls.Add(Me.btn_carregar)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 24)
         Me.Panel1.Name = "Panel1"
@@ -99,16 +99,6 @@ Partial Class formGeracao
         Me.lbl_configuracao.Size = New System.Drawing.Size(161, 18)
         Me.lbl_configuracao.TabIndex = 1
         Me.lbl_configuracao.Text = "Conexão Configurada"
-        '
-        'btn_carregar
-        '
-        Me.btn_carregar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_carregar.Location = New System.Drawing.Point(656, 7)
-        Me.btn_carregar.Name = "btn_carregar"
-        Me.btn_carregar.Size = New System.Drawing.Size(97, 34)
-        Me.btn_carregar.TabIndex = 0
-        Me.btn_carregar.Text = "Carregar"
-        Me.btn_carregar.UseVisualStyleBackColor = True
         '
         'chkBox_tabelas
         '
@@ -311,6 +301,15 @@ Partial Class formGeracao
         Me.rdBtn_aspNetCore.Text = "ASP.NET CORE"
         Me.rdBtn_aspNetCore.UseVisualStyleBackColor = True
         '
+        'cmbSolucao
+        '
+        Me.cmbSolucao.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbSolucao.FormattingEnabled = True
+        Me.cmbSolucao.Location = New System.Drawing.Point(492, 16)
+        Me.cmbSolucao.Name = "cmbSolucao"
+        Me.cmbSolucao.Size = New System.Drawing.Size(261, 21)
+        Me.cmbSolucao.TabIndex = 14
+        '
         'formGeracao
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -355,7 +354,6 @@ Partial Class formGeracao
     Friend WithEvents ConfiguraçãoToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ConfigurarConexaoToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
-    Friend WithEvents btn_carregar As System.Windows.Forms.Button
     Friend WithEvents lbl_configuracao As System.Windows.Forms.Label
     Friend WithEvents chkBox_tabelas As System.Windows.Forms.CheckedListBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
@@ -376,4 +374,5 @@ Partial Class formGeracao
     Friend WithEvents GroupBox3 As System.Windows.Forms.GroupBox
     Friend WithEvents rdBtn_aspNetStandard As System.Windows.Forms.RadioButton
     Friend WithEvents rdBtn_aspNetCore As System.Windows.Forms.RadioButton
+    Friend WithEvents cmbSolucao As ComboBox
 End Class

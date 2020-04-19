@@ -104,5 +104,11 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Codando.Config\Codando.Config.csproj">
+      <Project>{EEE33311-89C5-4D60-B3EF-8FA1E9A9BB7C}</Project>
+      <Name>Codando.Config</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

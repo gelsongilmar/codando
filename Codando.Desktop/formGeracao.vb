@@ -1,4 +1,5 @@
-﻿Imports Codando.DataBase
+﻿Imports Codando.Config
+Imports Codando.DataBase
 Imports Codando.Gerador
 Imports Microsoft.VisualBasic
 Imports System
@@ -8,13 +9,29 @@ Imports System.Windows.Forms
 
 Public Class formGeracao
 
+    Private _configCodando As ConfigCodando
+    Private _configSelecionada As ConfigCodandoSolucao = Nothing
+
     Private Sub formGeracao_Shown(sender As Object, e As EventArgs) Handles Me.Shown
         CarregarInformacoes()
     End Sub
 
     Private Sub CarregarInformacoes()
-        Dim arquivoXML As New ConexaoXML
-        arquivoXML.Carregar()
+
+        _configCodando = New Configuracao().GetConfigCodando()
+        CarregarComboSolucoes()
+        If cmbSolucao.Items.Count > 0 Then
+            cmbSolucao.SelectedIndex = 0
+            _configSelecionada = cmbSolucao.SelectedItem
+        End If
+
+        If _configSelecionada Is Nothing Then
+            ExibirConexaoNaoConfigurada()
+            Return
+        End If
+
+        Dim arquivoXML As New ConexaoSolucao
+        arquivoXML.Carregar(_configSelecionada)
         If arquivoXML.Host <> "" Then
 
             lbl_configuracao.Text = "Conexão Configurada: " + arquivoXML.Host + "\" + arquivoXML.Instancia + " BD: " + arquivoXML.NomeBancoDados
@@ -25,9 +42,13 @@ Public Class formGeracao
             End If
 
         Else
-            lbl_configuracao.Text = "Conexão não configurada"
-            lbl_configuracao.ForeColor = System.Drawing.Color.Red
+            ExibirConexaoNaoConfigurada()
         End If
+    End Sub
+
+    Private Sub ExibirConexaoNaoConfigurada()
+        lbl_configuracao.Text = "Conexão não configurada"
+        lbl_configuracao.ForeColor = System.Drawing.Color.Red
     End Sub
 
     Private Sub CarregarTabelas(p_strConexao As String)
@@ -43,14 +64,12 @@ Public Class formGeracao
         frmConexao.ShowDialog()
     End Sub
 
-    Private Sub btn_carregar_Click(sender As Object, e As System.EventArgs) Handles btn_carregar.Click
-        Me.CarregarInformacoes()
-    End Sub
-
     Private Sub btn_gerarCodigo_Click(sender As Object, e As System.EventArgs) Handles btn_gerarCodigo.Click
 
-        Dim _arquivoXML As New ConexaoXML
-        _arquivoXML.Carregar()
+        If _configSelecionada Is Nothing Then Return
+
+        Dim _arquivoXML As New ConexaoSolucao
+        _arquivoXML.Carregar(_configSelecionada)
 
         Dim _dirSolucao As String = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\Codando\Generations"
         Dim _dirGeracao As String = Now.ToString("yyyyMMddhhmmss")
@@ -67,7 +86,7 @@ Public Class formGeracao
 
             '// Gerar Classe de Acesso a Dados
             If True Then
-                Dim _strClasse As String = Me.ObterStrClass(idTabela, nomeTabela, _arquivoXML.MontarStringConexao, _arquivoXML.NamespacePrincipal)
+                Dim _strClasse As String = Me.ObterStrClass(idTabela, nomeTabela, _arquivoXML.MontarStringConexao, _configSelecionada.NamespacePrincipal)
 
                 Dim nomeArquivo As String = nomeTabela
                 If rdBtn_cSharp.Checked Then
@@ -167,6 +186,17 @@ Public Class formGeracao
         For i As Integer = 0 To (chkBox_tabelas.Items.Count - 1)
             chkBox_tabelas.SetItemCheckState(i, CheckState.Unchecked)
         Next
+    End Sub
+
+    Private Sub CarregarComboSolucoes()
+        cmbSolucao.Items.Clear()
+        For Each solucao As ConfigCodandoSolucao In _configCodando.Solucoes
+            cmbSolucao.Items.Add(solucao)
+        Next
+    End Sub
+
+    Private Sub cmbSolucao_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbSolucao.SelectedIndexChanged
+        Me.CarregarInformacoes()
     End Sub
 
 End Class
