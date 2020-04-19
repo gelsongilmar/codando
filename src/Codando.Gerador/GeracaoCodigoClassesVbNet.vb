@@ -117,7 +117,7 @@ Public Class GeracaoCodigoClassesVbNet
         _str.Append("            return ExecutarComando(conexao, comando, true)" + vbCrLf)
         _str.Append("        End Function" + vbCrLf)
         _str.Append(vbCrLf)
-        _str.Append("        Public Function Updade() As Boolean" + vbCrLf)
+        _str.Append("        Public Function Update() As Boolean" + vbCrLf)
         _str.Append("            Dim conexao As New SqlConnection(Me._strConexao)" + vbCrLf)
         _str.Append("            Dim comando As New SqlCommand(""usp_" + p_nomeTabela + "_Update"", conexao)" + vbCrLf)
 
