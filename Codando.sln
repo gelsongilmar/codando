@@ -11,6 +11,8 @@ Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Codando.Gerador", "Codando.
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "library", "library", "{63B59A29-BD24-44E2-AEA1-EA1E9FF1F429}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Codando.Config", "Codando.Config\Codando.Config.csproj", "{EEE33311-89C5-4D60-B3EF-8FA1E9A9BB7C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +31,10 @@ Global
 		{01D2A834-51A7-4825-B33A-3AED567E8BBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{01D2A834-51A7-4825-B33A-3AED567E8BBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{01D2A834-51A7-4825-B33A-3AED567E8BBC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EEE33311-89C5-4D60-B3EF-8FA1E9A9BB7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEE33311-89C5-4D60-B3EF-8FA1E9A9BB7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEE33311-89C5-4D60-B3EF-8FA1E9A9BB7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEE33311-89C5-4D60-B3EF-8FA1E9A9BB7C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -36,6 +42,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{F43B3D90-EB58-448E-B98D-B18A46C02735} = {63B59A29-BD24-44E2-AEA1-EA1E9FF1F429}
 		{01D2A834-51A7-4825-B33A-3AED567E8BBC} = {63B59A29-BD24-44E2-AEA1-EA1E9FF1F429}
+		{EEE33311-89C5-4D60-B3EF-8FA1E9A9BB7C} = {63B59A29-BD24-44E2-AEA1-EA1E9FF1F429}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {75150415-2134-4CA2-AF4F-C02F51956498}

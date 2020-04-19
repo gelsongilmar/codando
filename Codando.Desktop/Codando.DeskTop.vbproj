@@ -140,6 +140,10 @@
     <Content Include="code.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Codando.Config\Codando.Config.csproj">
+      <Project>{eee33311-89c5-4d60-b3ef-8fa1e9a9bb7c}</Project>
+      <Name>Codando.Config</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Codando.DataBase\Codando.DataBase.vbproj">
       <Project>{F43B3D90-EB58-448E-B98D-B18A46C02735}</Project>
       <Name>Codando.DataBase</Name>
