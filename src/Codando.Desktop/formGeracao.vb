@@ -78,7 +78,7 @@ Public Class formGeracao
 
         Dim validacao As New ValidaConfiguracao(_configSelecionada)
         If Not validacao.IsValid() Then
-            ' percorrer validacao.Notifications e exibir as mensagens
+            ViewNotification.Show(validacao)
             Return
         End If
 
@@ -89,7 +89,6 @@ Public Class formGeracao
 
         Me.CriarDiretorios(diretorios)
 
-        Dim strBD As String = ""
         For index = 0 To chkBox_tabelas.CheckedItems.Count - 1
 
             Dim dr As DataRowView = chkBox_tabelas.CheckedItems(index)
@@ -98,7 +97,11 @@ Public Class formGeracao
             Dim nomeTabela As String = dr.Item("NomeTabela").ToString
 
             '// Gerar Classe de Acesso a Dados
-            If True Then
+            If chk_gerarClasseDAL.Checked Then
+
+                'TODO:  CRIAR O PROJETO DAL, vide essa classe DiretoriosGeracao
+                ' AS DAL serão partial class e se ainda não existir vamos criar a class vazia onde o dev pode mexer, as partial não é para ser mexida
+
                 Dim _strClasse As String = Me.ObterStrClass(idTabela, nomeTabela, _arquivoXML.MontarStringConexao, _configSelecionada.NamespacePrincipal)
 
                 Dim nomeArquivo As String = nomeTabela
@@ -107,31 +110,22 @@ Public Class formGeracao
                 Else
                     nomeArquivo += ".vb"
                 End If
-                Dim sw As New IO.StreamWriter(diretorios.GetDiretorioProjetoDAL & "/" & nomeArquivo, False)
+                Dim sw As New IO.StreamWriter(diretorios.GetDiretorioGeracaoDAL & "/" & nomeArquivo, False)
                 sw.WriteLine(_strClasse)
                 sw.Close()
             End If
 
             '// Gerar Banco de dados
             If Me.IsGerarBancoDados Then
-                Dim _strTabelaProcedure As String = Me.ObterStrTabelaProcedures(idTabela, nomeTabela, _arquivoXML.MontarStringConexao)
-                If chkBox_gerarTabelasSeparadas.Checked Then
-                    Dim sw As New IO.StreamWriter(diretorios.GetDiretorioProjetoBD & "/" & nomeTabela + ".SQL", False)
-                    sw.WriteLine(_strTabelaProcedure)
-                    sw.Close()
-                Else
-                    strBD += _strTabelaProcedure
-                End If
-            End If
-        Next
 
-        If Me.IsGerarBancoDados Then
-            If Not chkBox_gerarTabelasSeparadas.Checked Then
-                Dim sw As New IO.StreamWriter(diretorios.GetDiretorioProjetoBD & "/ScriptDataBase.SQL", False)
-                sw.WriteLine(strBD)
+                'TODO:  CRIAR O PROJETO DE BANCO DE DADOS, vide essa classe DiretoriosGeracao
+
+                Dim _strTabelaProcedure As String = Me.ObterStrTabelaProcedures(idTabela, nomeTabela, _arquivoXML.MontarStringConexao)
+                Dim sw As New IO.StreamWriter(diretorios.GetDiretorioProjetoBD & "/" & nomeTabela + ".SQL", False)
+                sw.WriteLine(_strTabelaProcedure)
                 sw.Close()
             End If
-        End If
+        Next
 
         MessageBox.Show("Geração realizada com sucesso", "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information)
         System.Diagnostics.Process.Start((_configSelecionada.PastaGeracaoSolucao).Replace("\", "/"))
@@ -143,20 +137,21 @@ Public Class formGeracao
     End Function
 
     Private Sub CriarDiretorios(ditretorios As DiretoriosGeracao)
-
-        Dim _diretorioProjetoDAL As String = ditretorios.GetDiretorioProjetoDAL
-        Dim _diretorioProjetoWEB As String = ditretorios.GetDiretorioProjetoWEB
-        Dim _diretorioProjetoBD As String = ditretorios.GetDiretorioProjetoBD
-
-        If Not IO.Directory.Exists(_diretorioProjetoDAL) Then
-            IO.Directory.CreateDirectory(_diretorioProjetoDAL)
+        If Not IO.Directory.Exists(ditretorios.GetDiretorioProjetoDAL) Then
+            IO.Directory.CreateDirectory(ditretorios.GetDiretorioProjetoDAL)
         End If
-        If Not IO.Directory.Exists(_diretorioProjetoWEB) Then
-            IO.Directory.CreateDirectory(_diretorioProjetoWEB)
+        If Not IO.Directory.Exists(ditretorios.GetDiretorioGeracaoDAL) Then
+            IO.Directory.CreateDirectory(ditretorios.GetDiretorioGeracaoDAL)
+        End If
+        If Not IO.Directory.Exists(ditretorios.GetDiretorioProjetoWEB) Then
+            IO.Directory.CreateDirectory(ditretorios.GetDiretorioProjetoWEB)
         End If
         If Me.IsGerarBancoDados Then
-            If Not IO.Directory.Exists(_diretorioProjetoBD) Then
-                IO.Directory.CreateDirectory(_diretorioProjetoBD)
+            If Not IO.Directory.Exists(ditretorios.GetDiretorioProjetoBD) Then
+                IO.Directory.CreateDirectory(ditretorios.GetDiretorioProjetoBD)
+            End If
+            If Not IO.Directory.Exists(ditretorios.GetDiretorioGeracaoProcedures) Then
+                IO.Directory.CreateDirectory(ditretorios.GetDiretorioGeracaoProcedures)
             End If
         End If
     End Sub
