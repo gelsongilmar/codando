@@ -3,17 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30002.166
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Codando.DeskTop", "Codando.Desktop\Codando.DeskTop.vbproj", "{349DF0F7-1394-4724-A8CF-37BE67131FCC}"
-EndProject
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Codando.DataBase", "Codando.DataBase\Codando.DataBase.vbproj", "{F43B3D90-EB58-448E-B98D-B18A46C02735}"
-EndProject
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Codando.Gerador", "Codando.Gerador\Codando.Gerador.vbproj", "{01D2A834-51A7-4825-B33A-3AED567E8BBC}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "library", "library", "{63B59A29-BD24-44E2-AEA1-EA1E9FF1F429}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Codando.Config", "Codando.Config\Codando.Config.csproj", "{EEE33311-89C5-4D60-B3EF-8FA1E9A9BB7C}"
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Codando.DeskTop", "src\Codando.Desktop\Codando.DeskTop.vbproj", "{349DF0F7-1394-4724-A8CF-37BE67131FCC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Codando.Notification", "Codando.Notification\Codando.Notification.csproj", "{D45F248C-9A82-4BBE-944E-95262A5FD980}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Codando.Config", "src\Codando.Config\Codando.Config.csproj", "{EEE33311-89C5-4D60-B3EF-8FA1E9A9BB7C}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Codando.DataBase", "src\Codando.DataBase\Codando.DataBase.vbproj", "{F43B3D90-EB58-448E-B98D-B18A46C02735}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Codando.Gerador", "src\Codando.Gerador\Codando.Gerador.vbproj", "{01D2A834-51A7-4825-B33A-3AED567E8BBC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Codando.Notification", "src\Codando.Notification\Codando.Notification.csproj", "{D45F248C-9A82-4BBE-944E-95262A5FD980}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,6 +25,10 @@ Global
 		{349DF0F7-1394-4724-A8CF-37BE67131FCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{349DF0F7-1394-4724-A8CF-37BE67131FCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{349DF0F7-1394-4724-A8CF-37BE67131FCC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EEE33311-89C5-4D60-B3EF-8FA1E9A9BB7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEE33311-89C5-4D60-B3EF-8FA1E9A9BB7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEE33311-89C5-4D60-B3EF-8FA1E9A9BB7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEE33311-89C5-4D60-B3EF-8FA1E9A9BB7C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F43B3D90-EB58-448E-B98D-B18A46C02735}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F43B3D90-EB58-448E-B98D-B18A46C02735}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F43B3D90-EB58-448E-B98D-B18A46C02735}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -33,10 +37,6 @@ Global
 		{01D2A834-51A7-4825-B33A-3AED567E8BBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{01D2A834-51A7-4825-B33A-3AED567E8BBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{01D2A834-51A7-4825-B33A-3AED567E8BBC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EEE33311-89C5-4D60-B3EF-8FA1E9A9BB7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EEE33311-89C5-4D60-B3EF-8FA1E9A9BB7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EEE33311-89C5-4D60-B3EF-8FA1E9A9BB7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EEE33311-89C5-4D60-B3EF-8FA1E9A9BB7C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D45F248C-9A82-4BBE-944E-95262A5FD980}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D45F248C-9A82-4BBE-944E-95262A5FD980}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D45F248C-9A82-4BBE-944E-95262A5FD980}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -46,9 +46,9 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{EEE33311-89C5-4D60-B3EF-8FA1E9A9BB7C} = {63B59A29-BD24-44E2-AEA1-EA1E9FF1F429}
 		{F43B3D90-EB58-448E-B98D-B18A46C02735} = {63B59A29-BD24-44E2-AEA1-EA1E9FF1F429}
 		{01D2A834-51A7-4825-B33A-3AED567E8BBC} = {63B59A29-BD24-44E2-AEA1-EA1E9FF1F429}
-		{EEE33311-89C5-4D60-B3EF-8FA1E9A9BB7C} = {63B59A29-BD24-44E2-AEA1-EA1E9FF1F429}
 		{D45F248C-9A82-4BBE-944E-95262A5FD980} = {63B59A29-BD24-44E2-AEA1-EA1E9FF1F429}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
