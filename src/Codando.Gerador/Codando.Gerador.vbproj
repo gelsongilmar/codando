@@ -116,9 +116,9 @@
       <Project>{F43B3D90-EB58-448E-B98D-B18A46C02735}</Project>
       <Name>Codando.DataBase</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Codando.Notification\Codando.Notification.csproj">
-      <Project>{D45F248C-9A82-4BBE-944E-95262A5FD980}</Project>
-      <Name>Codando.Notification</Name>
+    <ProjectReference Include="..\Codando.Notification\Codando.Shared.csproj">
+      <Project>{d45f248c-9a82-4bbe-944e-95262a5fd980}</Project>
+      <Name>Codando.Shared</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />

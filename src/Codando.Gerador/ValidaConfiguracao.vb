@@ -1,10 +1,9 @@
 ﻿Imports Codando.Config
-Imports Codando.Notification
 
 Public Class ValidaConfiguracao
-    Inherits Notification.Notification
+    Inherits Codando.Shared.Notification
 
-    Private config As ConfigCodandoSolucao
+    Private ReadOnly config As ConfigCodandoSolucao
 
     Public Sub New(config As ConfigCodandoSolucao)
         Me.config = config

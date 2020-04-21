@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30002.166
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "library", "library", "{63B59A29-BD24-44E2-AEA1-EA1E9FF1F429}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Library", "Library", "{63B59A29-BD24-44E2-AEA1-EA1E9FF1F429}"
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Codando.DeskTop", "src\Codando.Desktop\Codando.DeskTop.vbproj", "{349DF0F7-1394-4724-A8CF-37BE67131FCC}"
 EndProject
@@ -13,13 +13,13 @@ Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Codando.DataBase", "src\Cod
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Codando.Gerador", "src\Codando.Gerador\Codando.Gerador.vbproj", "{01D2A834-51A7-4825-B33A-3AED567E8BBC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Codando.Notification", "src\Codando.Notification\Codando.Notification.csproj", "{D45F248C-9A82-4BBE-944E-95262A5FD980}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Codando.Shared", "src\Codando.Notification\Codando.Shared.csproj", "{D45F248C-9A82-4BBE-944E-95262A5FD980}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "geracao", "geracao", "{F76C3C82-426F-4E6D-B554-2D83651422B7}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Geracao", "Geracao", "{F76C3C82-426F-4E6D-B554-2D83651422B7}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "configuracao", "configuracao", "{8B3A9143-D320-4B6A-9FC4-BCBCC311022D}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configuracao", "Configuracao", "{8B3A9143-D320-4B6A-9FC4-BCBCC311022D}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "geral", "geral", "{8E4AA70A-82D5-4371-BF06-0BC70AF26216}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{8E4AA70A-82D5-4371-BF06-0BC70AF26216}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Codando.Gerador.Domain.Base", "src\Codando.Gerador.Domain.Base\Codando.Gerador.Domain.Base.csproj", "{943EEFB0-2ADE-4EAA-B455-2592F69FB67E}"
 EndProject
@@ -33,7 +33,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Codando.Gerador.FactoryDoma
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "old", "old", "{9B4516AC-63ED-4A71-AC29-735D2F23F90D}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "domain", "domain", "{896D5751-46F9-4448-87BB-8FA17378E016}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{896D5751-46F9-4448-87BB-8FA17378E016}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

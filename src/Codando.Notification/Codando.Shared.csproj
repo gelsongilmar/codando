@@ -7,8 +7,8 @@
     <ProjectGuid>{D45F248C-9A82-4BBE-944E-95262A5FD980}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Codando.Notification</RootNamespace>
-    <AssemblyName>Codando.Notification</AssemblyName>
+    <RootNamespace>Codando.Shared</RootNamespace>
+    <AssemblyName>Codando.Shared</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
