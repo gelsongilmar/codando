@@ -1,25 +1,25 @@
 ﻿using Codando.Gerador.Domain.Base;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Codando.Gerador.Motor
 {
     public class Gerador
     {
-        private Solucao _solucao;
+        private readonly Solucao _solucao;
 
         public Gerador(Solucao solucao)
         {
             _solucao = solucao;
         }
 
-        public void gerar() {
+        public void Gerar()
+        {
 
-            new GeradorSolutionFile().gerar(_solucao);
+            new GeradorSolutionFile().Gerar(_solucao);
 
+            foreach (var projeto in _solucao.Projetos)
+            {
+                
+            }
         }
     }
 }

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Codando.Gerador.Domain.CSharp
+﻿namespace Codando.Gerador.Domain.CSharp
 {
     public class Projeto: Base.Projeto
     {

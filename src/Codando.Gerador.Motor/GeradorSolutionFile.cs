@@ -1,18 +1,14 @@
 ﻿using Codando.Gerador.Domain.Base;
-using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Codando.Gerador.Motor
 {
     class GeradorSolutionFile
     {
-        public void gerar(Solucao solucao)
+        public void Gerar(Solucao solucao)
         {
-            StringBuilder _str = new StringBuilder();
+            var _str = new StringBuilder();
 
             _str.AppendLine("");
             _str.AppendLine("Microsoft Visual Studio Solution File, Format Version 12.00");

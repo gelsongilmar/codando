@@ -10,7 +10,7 @@ namespace Codando.Gerador.FactoryDomain
     public class FactoryGeracao
     {
         public Solucao GetSolucao(ParametrosGeracao parametrosGeracao) {
-            Solucao solucao = new Solucao(parametrosGeracao.ConfigSolucao);
+            var solucao = new Solucao(parametrosGeracao.ConfigSolucao);
 
             if (parametrosGeracao.GerarDAL) { 
                 solucao.Projetos.Add(GetProjetoDAL(parametrosGeracao));
@@ -23,13 +23,13 @@ namespace Codando.Gerador.FactoryDomain
         {
             if (parametrosGeracao.LinguagemGeracao == LinguagemGeracao.CSharp)
             {
-                Domain.Base.Projeto projeto = new Domain.CSharp.Projeto();
+                var projeto = new Domain.CSharp.Projeto();
                 return projeto;
             }
             
             if (parametrosGeracao.LinguagemGeracao == LinguagemGeracao.VisualBasic)
             {
-                Domain.Base.Projeto projeto = new Domain.VisualBasic.Projeto();
+                var projeto = new Domain.VisualBasic.Projeto();
 
                 return projeto;
             }

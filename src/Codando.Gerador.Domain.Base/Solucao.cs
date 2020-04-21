@@ -1,15 +1,11 @@
 ﻿using Codando.Config;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Codando.Gerador.Domain.Base
 {
     public class Solucao
     {
-        private ConfigCodandoSolucao _configuracao;
+        private readonly ConfigCodandoSolucao _configuracao;
 
         public List<Projeto> Projetos { get; set; }
 
