@@ -27,7 +27,7 @@ namespace Codando.Gerador.FactoryDomain
                 return projeto;
             }
             
-            if (parametrosGeracao.LinguagemGeracao == LinguagemGeracao.CSharp)
+            if (parametrosGeracao.LinguagemGeracao == LinguagemGeracao.VisualBasic)
             {
                 Domain.Base.Projeto projeto = new Domain.VisualBasic.Projeto();
 
