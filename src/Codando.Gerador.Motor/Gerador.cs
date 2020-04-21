@@ -12,14 +12,9 @@ namespace Codando.Gerador.Motor
         }
 
         public void Gerar()
-        {
-
+        { 
             new GeradorSolutionFile().Gerar(_solucao);
-
-            foreach (var projeto in _solucao.Projetos)
-            {
-                
-            }
+            new GeradorProjectFile().Gerar(_solucao);
         }
     }
 }
