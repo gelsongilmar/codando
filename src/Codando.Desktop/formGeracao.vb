@@ -1,6 +1,8 @@
 ﻿Imports Codando.Config
 Imports Codando.DataBase
 Imports Codando.Gerador
+Imports Codando.Gerador.Domain.Base
+Imports Codando.Gerador.FactoryDomain
 Imports Microsoft.VisualBasic
 Imports System
 Imports System.Data
@@ -97,7 +99,7 @@ Public Class formGeracao
             Dim nomeTabela As String = dr.Item("NomeTabela").ToString
 
             '// Gerar Classe de Acesso a Dados
-            If chk_gerarClasseDAL.Checked Then
+            If chk_gerarClasseDAL.Checked And False Then
 
                 'TODO:  CRIAR O PROJETO DAL, vide essa classe DiretoriosGeracao
                 ' AS DAL serão partial class e se ainda não existir vamos criar a class vazia onde o dev pode mexer, as partial não é para ser mexida
@@ -203,4 +205,54 @@ Public Class formGeracao
         Me.CarregarInformacoes()
     End Sub
 
+    Private Sub btn_gerarSolucao_Click(sender As Object, e As EventArgs) Handles btn_gerarSolucao.Click
+
+        If _configSelecionada Is Nothing Then Return
+
+        Dim validacao As New ValidaConfiguracao(_configSelecionada)
+        If Not validacao.IsValid() Then
+            ViewNotification.Show(validacao)
+            Return
+        End If
+
+        Dim _factory As New FactoryGeracao()
+
+        Dim _solucao As Solucao = _factory.GetSolucao(Me.GetParametrosGeracao())
+
+        Dim motor As New Gerador.Motor.Gerador(_solucao)
+        motor.gerar()
+
+        MessageBox.Show("Geração realizada com sucesso", "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        System.Diagnostics.Process.Start((_configSelecionada.PastaGeracaoSolucao).Replace("\", "/"))
+
+    End Sub
+
+    Private Function GetParametrosGeracao() As ParametrosGeracao
+        Dim retorno As New ParametrosGeracao
+
+        retorno.ConfigSolucao = _configSelecionada
+
+        For index = 0 To chkBox_tabelas.CheckedItems.Count - 1
+
+            Dim dr As DataRowView = chkBox_tabelas.CheckedItems(index)
+
+            Dim idTabela As String = dr.Item("IdTabela").ToString
+            Dim nomeTabela As String = dr.Item("NomeTabela").ToString
+
+            retorno.TabelasSelecionadas.Add(New Tabela(idTabela, nomeTabela))
+
+        Next
+
+        If rdBtn_cSharp.Checked Then
+            retorno.LinguagemGeracao = LinguagemGeracao.CSharp
+        Else
+            retorno.LinguagemGeracao = LinguagemGeracao.VisualBasic
+        End If
+
+        retorno.GerarDAL = chk_gerarClasseDAL.Checked
+        retorno.GerarTabelas = chkBox_gerarTabelas.Checked
+        retorno.GerarProcedures = chkBox_gerarProcedures.Checked
+
+        Return retorno
+    End Function
 End Class

@@ -150,6 +150,18 @@
       <Project>{F43B3D90-EB58-448E-B98D-B18A46C02735}</Project>
       <Name>Codando.DataBase</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Codando.Gerador.Domain.Base\Codando.Gerador.Domain.Base.csproj">
+      <Project>{943EEFB0-2ADE-4EAA-B455-2592F69FB67E}</Project>
+      <Name>Codando.Gerador.Domain.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Codando.Gerador.FactoryDomain\Codando.Gerador.FactoryDomain.csproj">
+      <Project>{1949aacb-ced5-488a-b421-90a06a317225}</Project>
+      <Name>Codando.Gerador.FactoryDomain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Codando.Gerador.Motor\Codando.Gerador.Motor.csproj">
+      <Project>{cc00b911-6b8b-4d42-9d60-d731c15d7701}</Project>
+      <Name>Codando.Gerador.Motor</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Codando.Gerador\Codando.Gerador.vbproj">
       <Project>{01D2A834-51A7-4825-B33A-3AED567E8BBC}</Project>
       <Name>Codando.Gerador</Name>

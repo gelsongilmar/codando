@@ -69,6 +69,7 @@
     <Compile Include="GeracaoCodigoBancoDados.vb" />
     <Compile Include="GeracaoCodigoClassesCSharp.vb" />
     <Compile Include="GeracaoCodigoClassesVbNet.vb" />
+    <Compile Include="GeracaoSolutionFile.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>

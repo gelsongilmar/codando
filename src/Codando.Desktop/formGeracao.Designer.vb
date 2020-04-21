@@ -38,6 +38,7 @@ Partial Class formGeracao
         Me.btn_marcarTodas = New System.Windows.Forms.Button()
         Me.btn_desmarcarTodas = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.chk_gerarClasseDAL = New System.Windows.Forms.CheckBox()
         Me.chkBox_gerarProcedures = New System.Windows.Forms.CheckBox()
         Me.chkBox_gerarTabelas = New System.Windows.Forms.CheckBox()
         Me.chkBox_isLocalizarIdentidade = New System.Windows.Forms.CheckBox()
@@ -47,7 +48,7 @@ Partial Class formGeracao
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.rdBtn_aspNetStandard = New System.Windows.Forms.RadioButton()
         Me.rdBtn_aspNetCore = New System.Windows.Forms.RadioButton()
-        Me.chk_gerarClasseDAL = New System.Windows.Forms.CheckBox()
+        Me.btn_gerarSolucao = New System.Windows.Forms.Button()
         Me.MenuStrip1.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -142,6 +143,7 @@ Partial Class formGeracao
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.SystemColors.ControlLight
+        Me.Panel2.Controls.Add(Me.btn_gerarSolucao)
         Me.Panel2.Controls.Add(Me.btn_abrirPasta)
         Me.Panel2.Controls.Add(Me.btn_gerarCodigo)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Bottom
@@ -163,7 +165,7 @@ Partial Class formGeracao
         'btn_gerarCodigo
         '
         Me.btn_gerarCodigo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_gerarCodigo.Location = New System.Drawing.Point(602, 8)
+        Me.btn_gerarCodigo.Location = New System.Drawing.Point(427, 8)
         Me.btn_gerarCodigo.Name = "btn_gerarCodigo"
         Me.btn_gerarCodigo.Size = New System.Drawing.Size(151, 34)
         Me.btn_gerarCodigo.TabIndex = 0
@@ -200,6 +202,18 @@ Partial Class formGeracao
         Me.GroupBox1.TabIndex = 7
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Configuração da Geração"
+        '
+        'chk_gerarClasseDAL
+        '
+        Me.chk_gerarClasseDAL.AutoSize = True
+        Me.chk_gerarClasseDAL.Checked = True
+        Me.chk_gerarClasseDAL.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.chk_gerarClasseDAL.Location = New System.Drawing.Point(15, 99)
+        Me.chk_gerarClasseDAL.Name = "chk_gerarClasseDAL"
+        Me.chk_gerarClasseDAL.Size = New System.Drawing.Size(110, 17)
+        Me.chk_gerarClasseDAL.TabIndex = 4
+        Me.chk_gerarClasseDAL.Text = "Gerar Classe DAL"
+        Me.chk_gerarClasseDAL.UseVisualStyleBackColor = True
         '
         'chkBox_gerarProcedures
         '
@@ -303,17 +317,15 @@ Partial Class formGeracao
         Me.rdBtn_aspNetCore.Text = "ASP.NET CORE"
         Me.rdBtn_aspNetCore.UseVisualStyleBackColor = True
         '
-        'chk_gerarClasseDAL
+        'btn_gerarSolucao
         '
-        Me.chk_gerarClasseDAL.AutoSize = True
-        Me.chk_gerarClasseDAL.Checked = True
-        Me.chk_gerarClasseDAL.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.chk_gerarClasseDAL.Location = New System.Drawing.Point(15, 99)
-        Me.chk_gerarClasseDAL.Name = "chk_gerarClasseDAL"
-        Me.chk_gerarClasseDAL.Size = New System.Drawing.Size(110, 17)
-        Me.chk_gerarClasseDAL.TabIndex = 4
-        Me.chk_gerarClasseDAL.Text = "Gerar Classe DAL"
-        Me.chk_gerarClasseDAL.UseVisualStyleBackColor = True
+        Me.btn_gerarSolucao.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_gerarSolucao.Location = New System.Drawing.Point(602, 8)
+        Me.btn_gerarSolucao.Name = "btn_gerarSolucao"
+        Me.btn_gerarSolucao.Size = New System.Drawing.Size(151, 34)
+        Me.btn_gerarSolucao.TabIndex = 3
+        Me.btn_gerarSolucao.Text = "Gerar Solução"
+        Me.btn_gerarSolucao.UseVisualStyleBackColor = True
         '
         'formGeracao
         '
@@ -380,4 +392,5 @@ Partial Class formGeracao
     Friend WithEvents cmbSolucao As ComboBox
     Friend WithEvents lbl_pastaOutPut As Label
     Friend WithEvents chk_gerarClasseDAL As CheckBox
+    Friend WithEvents btn_gerarSolucao As Button
 End Class
