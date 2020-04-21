@@ -33,7 +33,7 @@ namespace Codando.Config
             string caminho = $"{_diretorioConfigCodando}\\{_nomeArquivo}";
             using (var sw = new StreamWriter(caminho, false))
             {
-                sw.WriteLine(JsonConvert.SerializeObject(configCodando));
+                sw.WriteLine(JsonConvert.SerializeObject(configCodando, Formatting.Indented));
             }
         }
 

@@ -115,8 +115,8 @@ Public Class formGeracao
                 sw.Close()
             End If
 
-            '// Gerar Banco de dados
-            If Me.IsGerarBancoDados Then
+            '// Gerar Banco de dados - Depois Remover Esse False, por agora o foco é nas classes DAL
+            If Me.IsGerarBancoDados And False Then
 
                 'TODO:  CRIAR O PROJETO DE BANCO DE DADOS, vide essa classe DiretoriosGeracao
 
@@ -125,6 +125,7 @@ Public Class formGeracao
                 sw.WriteLine(_strTabelaProcedure)
                 sw.Close()
             End If
+
         Next
 
         MessageBox.Show("Geração realizada com sucesso", "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information)
