@@ -25,5 +25,9 @@ namespace Codando.Gerador.Domain.Base
             return _configuracao.PastaGeracaoSolucao;
         }
 
+        public string GetCaminhoCompletoSolucao(string extensao = ".sln")
+        {
+            return $"{GetDiretorioSolucao()}\\{GetNomeSolucao()}{extensao}";
+        } 
     }
 }

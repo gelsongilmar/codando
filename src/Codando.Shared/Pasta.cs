@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Codando.Gerador.Domain.Base
+namespace Codando.Shared
 {
     public class Pasta
     { 

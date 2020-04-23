@@ -10,9 +10,16 @@ namespace Codando.Gerador.Motor
 {
     class GeradorProjectFile
     {
-        public void Gerar(Solucao solucao)
+        private readonly Solucao _solucao;
+
+        public GeradorProjectFile(Solucao solucao)
+        {
+            this._solucao = solucao;
+        }
+
+        public void Gerar()
         { 
-            foreach (var projeto in solucao.Projetos)
+            foreach (var projeto in _solucao.Projetos)
             {
                 this.CriarEstruturaProjeto(projeto);
                 this.CriarArquivoProjeto(projeto);
@@ -21,10 +28,7 @@ namespace Codando.Gerador.Motor
 
         private void CriarEstruturaProjeto(Projeto projeto)
         {
-            foreach (var pasta in projeto.Pastas)
-            {
-                CriarPasta(pasta);
-            }
+            Diretorios.CriarEstruturaPasta(projeto.Pastas, _solucao.GetDiretorioSolucao());
         }
 
         private void CriarArquivoProjeto(Projeto projeto)
@@ -32,14 +36,5 @@ namespace Codando.Gerador.Motor
             
         }
 
-        private void CriarPasta(Pasta pasta)
-        {
-            Diretorios.CriarSeNaoExiste(pasta.Nome);
-
-            foreach (var subPasta in pasta.SubPastas)
-            {
-                CriarPasta(subPasta);
-            }
-        }
     }
 }

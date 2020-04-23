@@ -13,8 +13,8 @@ namespace Codando.Gerador.Motor
 
         public void Gerar()
         { 
-            new GeradorSolutionFile().Gerar(_solucao);
-            new GeradorProjectFile().Gerar(_solucao);
+            new GeradorSolutionFile(_solucao).Gerar();
+            new GeradorProjectFile(_solucao).Gerar();
         }
     }
 }

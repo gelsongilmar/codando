@@ -1,6 +1,8 @@
-﻿Public Class ViewNotification
+﻿Imports Codando.Shared
 
-    Public Shared Sub Show(notificacao As [Shared].Notification)
+Public Class ViewNotification
+
+    Public Shared Sub Show(notificacao As Notification)
         MessageBox.Show(notificacao.ToString, "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
 

@@ -6,7 +6,14 @@ namespace Codando.Gerador.Motor
 {
     class GeradorSolutionFile
     {
-        public void Gerar(Solucao solucao)
+        private readonly Solucao _solucao;
+
+        public GeradorSolutionFile(Solucao solucao)
+        {
+            this._solucao = solucao;
+        }
+
+        public void Gerar()
         {
             var _str = new StringBuilder();
 
@@ -16,7 +23,7 @@ namespace Codando.Gerador.Motor
             _str.AppendLine("VisualStudioVersion = 16.0.30002.166");
             _str.AppendLine("MinimumVisualStudioVersion = 10.0.40219.1");
 
-            foreach (Projeto proj in solucao.Projetos)
+            foreach (Projeto proj in _solucao.Projetos)
             {
                 _str.AppendLine("Project(\"{" + proj.GuIdTipoProjeto + "}\") = \"" + proj.NomeProjeto + "\", \"" + proj.NomeProjeto + "\\" + proj.NomeProjeto + proj.ExtensaoProjeto + "\", \"{" + proj.GuIdProjeto + "}\"");
                 _str.AppendLine("EndProject");
@@ -29,7 +36,7 @@ namespace Codando.Gerador.Motor
             _str.AppendLine("	EndGlobalSection");
             _str.AppendLine("	GlobalSection(ProjectConfigurationPlatforms) = postSolution");
 
-            foreach (Projeto proj in solucao.Projetos)
+            foreach (Projeto proj in _solucao.Projetos)
             {
                 _str.AppendLine("		{" + proj.GuIdProjeto + "}.Debug|Any CPU.ActiveCfg = Debug|Any CPU");
                 _str.AppendLine("		{" + proj.GuIdProjeto + "}.Debug|Any CPU.Build.0 = Debug|Any CPU");
@@ -48,12 +55,10 @@ namespace Codando.Gerador.Motor
             _str.AppendLine("EndGlobal");
             _str.AppendLine("");
 
-            string caminho = $"{solucao.GetDiretorioSolucao()}\\{solucao.GetNomeSolucao()}.sln";
-            using (var sw = new StreamWriter(caminho, false))
+            using (var sw = new StreamWriter(_solucao.GetCaminhoCompletoSolucao(), false))
             {
                 sw.WriteLine(_str.ToString());
-            }
-
+            } 
         }
     }
 }

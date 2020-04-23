@@ -166,7 +166,7 @@
       <Project>{01D2A834-51A7-4825-B33A-3AED567E8BBC}</Project>
       <Name>Codando.Gerador</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Codando.Notification\Codando.Shared.csproj">
+    <ProjectReference Include="..\Codando.Shared\Codando.Shared.csproj">
       <Project>{d45f248c-9a82-4bbe-944e-95262a5fd980}</Project>
       <Name>Codando.Shared</Name>
     </ProjectReference>

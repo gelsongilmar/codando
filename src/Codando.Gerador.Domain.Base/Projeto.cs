@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Codando.Shared;
+using System.Collections.Generic;
 
 namespace Codando.Gerador.Domain.Base
 {
