@@ -8,7 +8,7 @@ namespace Codando.Shared
 {
    public class Diretorios
     {
-        public static void CriarSeNaoExiste(string folder)
+        public static void CriarPastaSeNaoExiste(string folder)
         {
             if (!System.IO.Directory.Exists(folder))
                 System.IO.Directory.CreateDirectory(folder);
@@ -25,7 +25,7 @@ namespace Codando.Shared
         public static void CriarPasta(Pasta pasta, string local)
         {
             var localCompleto = $"{local}\\{pasta.Nome}";
-            CriarSeNaoExiste(localCompleto);
+            CriarPastaSeNaoExiste(localCompleto);
 
             foreach (var subPasta in pasta.SubPastas)
             {
