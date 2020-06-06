@@ -6,15 +6,13 @@ using System.Threading.Tasks;
 
 namespace Codando.Shared
 {
-    public class EntidadeGerada
-    {
+    public class AtributoGerado
+    { 
         public String Nome { get; set; }
-        public List<AtributoGerado> Atributos { get; set; }
 
-        public EntidadeGerada(String nome)
+        public AtributoGerado(String nome)
         {
             this.Nome = nome;
-            this.Atributos = new List<AtributoGerado>();
         }
 
         public override string ToString()
@@ -24,3 +22,4 @@ namespace Codando.Shared
 
     }
 }
+ 

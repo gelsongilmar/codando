@@ -10,6 +10,8 @@ Public Class FrmGerar
     Private _configCodando As ConfigCodando
     Private _configSelecionada As SolucaoCodando = Nothing
     Private _configGeracaoSelecionada As SolucaoGerada = Nothing
+    Private _entidadeSelecionada As EntidadeGerada = Nothing
+    Private _atributoSelecionado As AtributoGerado = Nothing
 
     Private Sub FrmGerar_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown
         If Not Me.DesignMode Then
@@ -45,14 +47,21 @@ Public Class FrmGerar
         lbl_pastaOutPut.ForeColor = System.Drawing.Color.Blue
         lbl_pastaOutPut.Text = "Pasta Geração: " + _configSelecionada.PastaGeracaoSolucao
 
-        trvEntidades.Nodes.Clear()
-        trvEntidades.Nodes.Add(_configGeracaoSelecionada.NomeGeracao)
-
+        Dim i = ltbEntidades.SelectedIndex
+        ltbEntidades.Items.Clear()
         For Each item As EntidadeGerada In _configGeracaoSelecionada.Entidades
-            trvEntidades.Nodes.Item(0).Nodes.Add(item.Nome, item.Nome)
+            ltbEntidades.Items.Add(item)
         Next
 
-        trvEntidades.ExpandAll()
+        If ltbEntidades.Items.Count > 0 Then
+
+            If i < 0 Then
+                i = 0
+            End If
+
+            ltbEntidades.SelectedIndex = i
+
+        End If
 
     End Sub
 
@@ -113,7 +122,7 @@ Public Class FrmGerar
         txtOutPut.AppendText(vbCrLf & Now.ToString() & ": " & msg)
     End Sub
 
-    Private Sub btnAddNovaEntidade_Click(sender As Object, e As EventArgs) Handles btnAddNovaEntidade.Click
+    Private Sub btnAddNovaEntidade_Click(sender As Object, e As EventArgs)
         AddNovaEntidade()
     End Sub
 
@@ -135,9 +144,86 @@ Public Class FrmGerar
 
     End Sub
 
-    Private Sub txtNomeEntidade_KeyDown(sender As Object, e As KeyEventArgs) Handles txtNomeEntidade.KeyDown
+    Private Sub txtNomeEntidade_KeyDown(sender As Object, e As KeyEventArgs)
         If e.KeyCode = Keys.Enter Then
             AddNovaEntidade()
         End If
     End Sub
+
+    Private Sub ltbEntidades_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ltbEntidades.SelectedIndexChanged
+        Me.PreencherDadosTabelaSelecionada()
+    End Sub
+
+    Private Sub PreencherDadosTabelaSelecionada()
+        _entidadeSelecionada = ltbEntidades.SelectedItem
+
+        If Not _entidadeSelecionada Is Nothing Then
+
+
+            txtPropNomeEntidade.Text = _entidadeSelecionada.Nome
+
+            Dim i = ltbAtributos.SelectedIndex
+
+            ltbAtributos.Items.Clear()
+            For Each item As AtributoGerado In _entidadeSelecionada.Atributos
+                ltbAtributos.Items.Add(item)
+            Next
+
+            If ltbAtributos.Items.Count > 0 Then
+
+                If i < 0 Then
+                    i = 0
+                End If
+
+                ltbAtributos.SelectedIndex = i
+
+            End If
+
+        End If
+
+    End Sub
+
+    Private Sub btnAddNovoAtributo_Click(sender As Object, e As EventArgs) Handles btnAddNovoAtributo.Click
+        AddNovoAtributo()
+    End Sub
+
+    Private Sub AddNovoAtributo()
+        If txtNomeAtributo.Text.Trim = "" Then Return
+
+        For Each item As AtributoGerado In _entidadeSelecionada.Atributos
+            If item.Nome = txtNomeAtributo.Text.Trim Then Return
+        Next
+
+        _entidadeSelecionada.Atributos.Add(New AtributoGerado(txtNomeAtributo.Text.Trim))
+        Dim configGeracao As New ConfiguracaoGeracao(_configSelecionada)
+        configGeracao.SetConfig(_configGeracaoSelecionada)
+
+        Me.PreencherConfgGeracaoSelecionada()
+        Me.CarregarInformacoes()
+
+        txtNomeEntidade.Text = ""
+    End Sub
+
+    Private Sub txtNomeAtributo_KeyDown(sender As Object, e As KeyEventArgs) Handles txtNomeAtributo.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            AddNovoAtributo()
+        End If
+    End Sub
+
+    Private Sub ltbAtributos_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ltbAtributos.SelectedIndexChanged
+        Me.PreencherDadosAtributoSelecionado()
+    End Sub
+
+    Private Sub PreencherDadosAtributoSelecionado()
+        _atributoSelecionado = ltbAtributos.SelectedItem
+
+        If Not _atributoSelecionado Is Nothing Then
+
+
+            txtPropNomeAtributo.Text = _atributoSelecionado.Nome
+
+        End If
+
+    End Sub
+
 End Class
