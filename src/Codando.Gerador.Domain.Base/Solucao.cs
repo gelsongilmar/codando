@@ -5,11 +5,11 @@ namespace Codando.Gerador.Domain.Base
 {
     public class Solucao
     {
-        private readonly ConfigCodandoSolucao _configuracao;
+        private readonly ConfigCodandoSolucaoOld _configuracao;
 
         public List<Projeto> Projetos { get; set; }
 
-        public Solucao(ConfigCodandoSolucao configuracao)
+        public Solucao(ConfigCodandoSolucaoOld configuracao)
         {
             _configuracao = configuracao;
             this.Projetos = new List<Projeto>();

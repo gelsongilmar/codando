@@ -2,9 +2,9 @@
 
 Public Class DiretoriosGeracao
 
-    Private _config As ConfigCodandoSolucao
+    Private _config As ConfigCodandoSolucaoOld
 
-    Public Sub New(config As ConfigCodandoSolucao)
+    Public Sub New(config As ConfigCodandoSolucaoOld)
         _config = config
     End Sub
 

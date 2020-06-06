@@ -9,10 +9,10 @@ Imports System.Data
 Imports System.Drawing
 Imports System.Windows.Forms
 
-Public Class formGeracao
+Public Class FormGeracaoOld
 
-    Private _configCodando As ConfigCodando
-    Private _configSelecionada As ConfigCodandoSolucao = Nothing
+    Private _configCodando As ConfigCodandoOld
+    Private _configSelecionada As ConfigCodandoSolucaoOld = Nothing
 
     Private Sub formGeracao_Shown(sender As Object, e As EventArgs) Handles Me.Shown
         If Not Me.DesignMode Then
@@ -22,7 +22,7 @@ Public Class formGeracao
     End Sub
 
     Private Sub CarregarConfiguracoes()
-        _configCodando = New Configuracao().GetConfigCodando()
+        _configCodando = New ConfiguracaoOld().GetConfigCodando()
         CarregarComboSolucoes()
         If cmbSolucao.Items.Count > 0 Then
             cmbSolucao.SelectedIndex = 0
@@ -195,7 +195,7 @@ Public Class formGeracao
 
     Private Sub CarregarComboSolucoes()
         cmbSolucao.Items.Clear()
-        For Each solucao As ConfigCodandoSolucao In _configCodando.Solucoes
+        For Each solucao As ConfigCodandoSolucaoOld In _configCodando.Solucoes
             cmbSolucao.Items.Add(solucao)
         Next
     End Sub
@@ -220,7 +220,7 @@ Public Class formGeracao
         Dim _solucao As Solucao = _factory.GetSolucao(Me.GetParametrosGeracao())
 
         Dim motor As New Gerador.Motor.Gerador(_solucao)
-        motor.gerar()
+        motor.Gerar()
 
         MessageBox.Show("Geração realizada com sucesso", "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information)
         System.Diagnostics.Process.Start((_configSelecionada.PastaGeracaoSolucao).Replace("\", "/"))

@@ -44,9 +44,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConfigCodando.cs" />
-    <Compile Include="ConfigCodandoSolucao.cs" />
-    <Compile Include="Configuracao.cs" />
+    <Compile Include="old-remover-no-futuro\ConfigCodandoOld.cs" />
+    <Compile Include="old-remover-no-futuro\ConfigCodandoSolucaoOld.cs" />
+    <Compile Include="old-remover-no-futuro\ConfiguracaoOld.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -4,20 +4,20 @@ using System.IO;
 
 namespace Codando.Config
 {
-    public class Configuracao
+    public class ConfiguracaoOld
     {
         private readonly string _diretorioConfigCodando = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\codando\configs";
-        private readonly string _nomeArquivo = "codando.config";
+        private readonly string _nomeArquivo = "codando.old.config";
 
-        public Configuracao()
+        public ConfiguracaoOld()
         {
             CriarPasta();
         }
 
-        public ConfigCodando GetConfigCodando()
+        public ConfigCodandoOld GetConfigCodando()
         {
             string caminho = $"{_diretorioConfigCodando}\\{_nomeArquivo}";
-            if (!File.Exists(caminho)) return new ConfigCodando();
+            if (!File.Exists(caminho)) return new ConfigCodandoOld();
 
             string json = "";
             using (var sr = new StreamReader(caminho))
@@ -25,10 +25,10 @@ namespace Codando.Config
                 json = sr.ReadToEnd();
             }
 
-            return JsonConvert.DeserializeObject<ConfigCodando>(json);
+            return JsonConvert.DeserializeObject<ConfigCodandoOld>(json);
         }
 
-        public void AtualizarConfigCodando(ConfigCodando configCodando)
+        public void AtualizarConfigCodando(ConfigCodandoOld configCodando)
         {
             string caminho = $"{_diretorioConfigCodando}\\{_nomeArquivo}";
             using (var sw = new StreamWriter(caminho, false))

@@ -3,7 +3,7 @@ Imports Codando.Config
 
 Public Class GeracaoSolutionFile
 
-    Public Function GerarStrSln(p_configSolucao As ConfigCodandoSolucao, p_gerarClasseDal As Boolean) As String
+    Public Function GerarStrSln(p_configSolucao As ConfigCodandoSolucaoOld, p_gerarClasseDal As Boolean) As String
         Dim _str As New StringBuilder
 
         _str.AppendLine("")

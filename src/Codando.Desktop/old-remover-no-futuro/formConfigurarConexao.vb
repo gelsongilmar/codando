@@ -6,12 +6,12 @@ Imports Codando.Config
 Public Class formConfigurarConexao
 
 
-    Private _configCodando As ConfigCodando
-    Private _configSelecionada As ConfigCodandoSolucao = Nothing
+    Private _configCodando As ConfigCodandoOld
+    Private _configSelecionada As ConfigCodandoSolucaoOld = Nothing
 
     Public Sub Inicial()
 
-        _configCodando = New Configuracao().GetConfigCodando()
+        _configCodando = New ConfiguracaoOld().GetConfigCodando()
         CarregarComboSolucoes()
         If cmbSolucao.Items.Count > 0 Then
             cmbSolucao.SelectedIndex = 0
@@ -34,7 +34,7 @@ Public Class formConfigurarConexao
 
         PreencherConfigSelecionada()
 
-        Dim config As New Configuracao
+        Dim config As New ConfiguracaoOld
         config.AtualizarConfigCodando(_configCodando)
 
         pnl_listagem.Enabled = True
@@ -103,7 +103,7 @@ Public Class formConfigurarConexao
 
         _configCodando.Solucoes.Remove(_configSelecionada)
 
-        Dim config As New Configuracao
+        Dim config As New ConfiguracaoOld
         config.AtualizarConfigCodando(_configCodando)
 
         _configSelecionada = Nothing
@@ -123,13 +123,13 @@ Public Class formConfigurarConexao
 
     Private Sub CarregarComboSolucoes()
         cmbSolucao.Items.Clear()
-        For Each solucao As ConfigCodandoSolucao In _configCodando.Solucoes
+        For Each solucao As ConfigCodandoSolucaoOld In _configCodando.Solucoes
             cmbSolucao.Items.Add(solucao)
         Next
     End Sub
 
     Private Sub AddNovaSolucao()
-        Dim config As New ConfigCodandoSolucao()
+        Dim config As New ConfigCodandoSolucaoOld()
         config.NomeSolucao = "Nova Solução"
         _configCodando.Solucoes.Add(config)
     End Sub

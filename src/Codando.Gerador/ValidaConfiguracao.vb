@@ -3,9 +3,9 @@
 Public Class ValidaConfiguracao
     Inherits Codando.Shared.Notification
 
-    Private ReadOnly config As ConfigCodandoSolucao
+    Private ReadOnly config As ConfigCodandoSolucaoOld
 
-    Public Sub New(config As ConfigCodandoSolucao)
+    Public Sub New(config As ConfigCodandoSolucaoOld)
         Me.config = config
     End Sub
 

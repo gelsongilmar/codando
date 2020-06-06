@@ -1,6 +1,6 @@
 ﻿namespace Codando.Config
 {
-    public class ConfigCodandoSolucao
+    public class ConfigCodandoSolucaoOld
     {
         public string NomeSolucao { get; set; }
         public string Host { get; set; }

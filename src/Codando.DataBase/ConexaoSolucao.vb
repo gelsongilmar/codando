@@ -9,7 +9,7 @@ Public Class ConexaoSolucao
     Public Property Usuario As String
     Public Property Senha As String
 
-    Public Sub Carregar(configCodandoSolucao As ConfigCodandoSolucao)
+    Public Sub Carregar(configCodandoSolucao As ConfigCodandoSolucaoOld)
 
         Me.Host = configCodandoSolucao.Host
         Me.Instancia = configCodandoSolucao.Instancia
