@@ -28,23 +28,32 @@ Partial Class FrmGerar
         Me.ArquivoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SoluçõesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.btnGerar = New System.Windows.Forms.Button()
         Me.lbl_pastaOutPut = New System.Windows.Forms.Label()
         Me.cmbSolucao = New System.Windows.Forms.ComboBox()
         Me.txtOutPut = New System.Windows.Forms.TextBox()
-        Me.btnGerar = New System.Windows.Forms.Button()
+        Me.trvEntidades = New System.Windows.Forms.TreeView()
+        Me.txtNomeEntidade = New System.Windows.Forms.TextBox()
+        Me.btnAddNovaEntidade = New System.Windows.Forms.Button()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.GroupBox1.SuspendLayout()
         Me.menuGeral.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.Label1)
+        Me.GroupBox1.Controls.Add(Me.btnAddNovaEntidade)
+        Me.GroupBox1.Controls.Add(Me.txtNomeEntidade)
+        Me.GroupBox1.Controls.Add(Me.trvEntidades)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 73)
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(3, 5, 3, 3)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(350, 372)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = " [ Solução ] "
+        Me.GroupBox1.Text = " [ Entidades ] "
         '
         'menuGeral
         '
@@ -65,7 +74,7 @@ Partial Class FrmGerar
         'SoluçõesToolStripMenuItem
         '
         Me.SoluçõesToolStripMenuItem.Name = "SoluçõesToolStripMenuItem"
-        Me.SoluçõesToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.SoluçõesToolStripMenuItem.Size = New System.Drawing.Size(121, 22)
         Me.SoluçõesToolStripMenuItem.Text = "Soluções"
         '
         'Panel1
@@ -79,6 +88,21 @@ Partial Class FrmGerar
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(780, 31)
         Me.Panel1.TabIndex = 2
+        '
+        'btnGerar
+        '
+        Me.btnGerar.BackColor = System.Drawing.Color.Maroon
+        Me.btnGerar.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnGerar.Dock = System.Windows.Forms.DockStyle.Right
+        Me.btnGerar.Font = New System.Drawing.Font("Arial", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnGerar.ForeColor = System.Drawing.Color.White
+        Me.btnGerar.Location = New System.Drawing.Point(680, 0)
+        Me.btnGerar.Margin = New System.Windows.Forms.Padding(0)
+        Me.btnGerar.Name = "btnGerar"
+        Me.btnGerar.Size = New System.Drawing.Size(100, 31)
+        Me.btnGerar.TabIndex = 16
+        Me.btnGerar.Text = "Gerar"
+        Me.btnGerar.UseVisualStyleBackColor = False
         '
         'lbl_pastaOutPut
         '
@@ -111,20 +135,38 @@ Partial Class FrmGerar
         Me.txtOutPut.Size = New System.Drawing.Size(780, 100)
         Me.txtOutPut.TabIndex = 3
         '
-        'btnGerar
+        'trvEntidades
         '
-        Me.btnGerar.BackColor = System.Drawing.Color.Maroon
-        Me.btnGerar.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnGerar.Dock = System.Windows.Forms.DockStyle.Right
-        Me.btnGerar.Font = New System.Drawing.Font("Arial", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnGerar.ForeColor = System.Drawing.Color.White
-        Me.btnGerar.Location = New System.Drawing.Point(680, 0)
-        Me.btnGerar.Margin = New System.Windows.Forms.Padding(0)
-        Me.btnGerar.Name = "btnGerar"
-        Me.btnGerar.Size = New System.Drawing.Size(100, 31)
-        Me.btnGerar.TabIndex = 16
-        Me.btnGerar.Text = "Gerar"
-        Me.btnGerar.UseVisualStyleBackColor = False
+        Me.trvEntidades.Location = New System.Drawing.Point(10, 54)
+        Me.trvEntidades.Name = "trvEntidades"
+        Me.trvEntidades.Size = New System.Drawing.Size(334, 303)
+        Me.trvEntidades.TabIndex = 0
+        '
+        'txtNomeEntidade
+        '
+        Me.txtNomeEntidade.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtNomeEntidade.Location = New System.Drawing.Point(49, 28)
+        Me.txtNomeEntidade.Name = "txtNomeEntidade"
+        Me.txtNomeEntidade.Size = New System.Drawing.Size(239, 20)
+        Me.txtNomeEntidade.TabIndex = 1
+        '
+        'btnAddNovaEntidade
+        '
+        Me.btnAddNovaEntidade.Location = New System.Drawing.Point(294, 26)
+        Me.btnAddNovaEntidade.Name = "btnAddNovaEntidade"
+        Me.btnAddNovaEntidade.Size = New System.Drawing.Size(50, 23)
+        Me.btnAddNovaEntidade.TabIndex = 2
+        Me.btnAddNovaEntidade.Text = "Add"
+        Me.btnAddNovaEntidade.UseVisualStyleBackColor = True
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(7, 31)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(36, 13)
+        Me.Label1.TabIndex = 3
+        Me.Label1.Text = "Nova:"
         '
         'FrmGerar
         '
@@ -142,6 +184,8 @@ Partial Class FrmGerar
         Me.Padding = New System.Windows.Forms.Padding(10)
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Codando"
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
         Me.menuGeral.ResumeLayout(False)
         Me.menuGeral.PerformLayout()
         Me.Panel1.ResumeLayout(False)
@@ -160,4 +204,8 @@ Partial Class FrmGerar
     Friend WithEvents cmbSolucao As ComboBox
     Friend WithEvents txtOutPut As TextBox
     Friend WithEvents btnGerar As Button
+    Friend WithEvents Label1 As Label
+    Friend WithEvents btnAddNovaEntidade As Button
+    Friend WithEvents txtNomeEntidade As TextBox
+    Friend WithEvents trvEntidades As TreeView
 End Class

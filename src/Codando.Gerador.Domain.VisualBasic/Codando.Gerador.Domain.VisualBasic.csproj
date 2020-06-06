@@ -35,13 +35,14 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ProjetoDAL.cs" />
+    <Compile Include="ProjetoDAL\ArquivoDelegates.cs" />
+    <Compile Include="ProjetoDAL\ArquivoEntidade.cs" />
+    <Compile Include="ProjetoDAL\ProjetoDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

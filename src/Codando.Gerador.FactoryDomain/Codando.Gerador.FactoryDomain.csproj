@@ -63,6 +63,10 @@
       <Project>{984ef1d6-c12d-4cfe-98d0-09367788fbc5}</Project>
       <Name>Codando.Gerador.Domain.VisualBasic</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Codando.Shared\Codando.Shared.csproj">
+      <Project>{D45F248C-9A82-4BBE-944E-95262A5FD980}</Project>
+      <Name>Codando.Shared</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

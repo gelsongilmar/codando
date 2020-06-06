@@ -3,6 +3,7 @@ Imports Codando.Config.geracao
 Imports Codando.Gerador
 Imports Codando.Gerador.Domain.Base
 Imports Codando.Gerador.FactoryDomain
+Imports Codando.[Shared]
 
 Public Class FrmGerar
 
@@ -44,6 +45,15 @@ Public Class FrmGerar
         lbl_pastaOutPut.ForeColor = System.Drawing.Color.Blue
         lbl_pastaOutPut.Text = "Pasta Geração: " + _configSelecionada.PastaGeracaoSolucao
 
+        trvEntidades.Nodes.Clear()
+        trvEntidades.Nodes.Add(_configGeracaoSelecionada.NomeGeracao)
+
+        For Each item As EntidadeGerada In _configGeracaoSelecionada.Entidades
+            trvEntidades.Nodes.Item(0).Nodes.Add(item.Nome, item.Nome)
+        Next
+
+        trvEntidades.ExpandAll()
+
     End Sub
 
     Private Sub ExibirConexaoNaoConfigurada()
@@ -79,7 +89,7 @@ Public Class FrmGerar
         Dim _solucao As Solucao = _factory.GetSolucao(Me.GetParametrosGeracao())
 
         Dim motor As New Gerador.Motor.Gerador(_solucao)
-        motor.Gerar()
+        motor.Gerar(AddressOf ShowProgresso)
 
         MessageBox.Show("Geração realizada com sucesso", "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
@@ -99,4 +109,35 @@ Public Class FrmGerar
         _configGeracaoSelecionada = configGeracao.GetConfig()
     End Sub
 
+    Sub ShowProgresso(msg As String)
+        txtOutPut.AppendText(vbCrLf & Now.ToString() & ": " & msg)
+    End Sub
+
+    Private Sub btnAddNovaEntidade_Click(sender As Object, e As EventArgs) Handles btnAddNovaEntidade.Click
+        AddNovaEntidade()
+    End Sub
+
+    Private Sub AddNovaEntidade()
+        If txtNomeEntidade.Text.Trim = "" Then Return
+
+        For Each item As EntidadeGerada In _configGeracaoSelecionada.Entidades
+            If item.Nome = txtNomeEntidade.Text.Trim Then Return
+        Next
+
+        _configGeracaoSelecionada.Entidades.Add(New EntidadeGerada(txtNomeEntidade.Text.Trim))
+        Dim configGeracao As New ConfiguracaoGeracao(_configSelecionada)
+        configGeracao.SetConfig(_configGeracaoSelecionada)
+
+        Me.PreencherConfgGeracaoSelecionada()
+        Me.CarregarInformacoes()
+
+        txtNomeEntidade.Text = ""
+
+    End Sub
+
+    Private Sub txtNomeEntidade_KeyDown(sender As Object, e As KeyEventArgs) Handles txtNomeEntidade.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            AddNovaEntidade()
+        End If
+    End Sub
 End Class

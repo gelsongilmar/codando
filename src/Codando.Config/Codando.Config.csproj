@@ -57,5 +57,11 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Codando.Shared\Codando.Shared.csproj">
+      <Project>{d45f248c-9a82-4bbe-944e-95262a5fd980}</Project>
+      <Name>Codando.Shared</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

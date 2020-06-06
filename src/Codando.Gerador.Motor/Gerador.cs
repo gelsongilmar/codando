@@ -1,4 +1,5 @@
 ﻿using Codando.Gerador.Domain.Base;
+using Codando.Shared;
 
 namespace Codando.Gerador.Motor
 {
@@ -11,10 +12,10 @@ namespace Codando.Gerador.Motor
             _solucao = solucao;
         }
 
-        public void Gerar()
+        public void Gerar(ShowProgresso showProgresso)
         { 
-            new GeradorSolutionFile(_solucao).Gerar();
-            new GeradorProjectFile(_solucao).Gerar();
+            new GeradorSolution(_solucao).Gerar(showProgresso);
+            new GeradorProject(_solucao).Gerar(showProgresso);
         }
     }
 }

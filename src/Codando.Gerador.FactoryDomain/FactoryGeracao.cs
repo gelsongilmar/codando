@@ -12,6 +12,7 @@ namespace Codando.Gerador.FactoryDomain
         public Solucao GetSolucao(ParametrosGeracao parametrosGeracao) {
 
             var solucao = new Solucao(parametrosGeracao.ConfigSolucao);
+            solucao.Entidades = parametrosGeracao.ConfigSolucao.Entidades;
             solucao.Projetos.Add(GetProjetoDAL(parametrosGeracao, solucao));
             return solucao;
 
@@ -27,8 +28,7 @@ namespace Codando.Gerador.FactoryDomain
             
             if (parametrosGeracao.LinguagemGeracao == LinguagemGeracao.VisualBasic)
             {
-                var projeto = new Domain.VisualBasic.ProjetoDAL(solucao);
-
+                var projeto = new Domain.VisualBasic.ProjetoDAL.ProjetoDAL(solucao);
                 return projeto;
             }
 

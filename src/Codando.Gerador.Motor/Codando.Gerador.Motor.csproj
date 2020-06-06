@@ -42,8 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Gerador.cs" />
-    <Compile Include="GeradorProjectFile.cs" />
-    <Compile Include="GeradorSolutionFile.cs" />
+    <Compile Include="GeradorProject.cs" />
+    <Compile Include="GeradorSolution.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

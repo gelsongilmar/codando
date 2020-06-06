@@ -1,19 +1,20 @@
 ﻿using Codando.Gerador.Domain.Base;
+using Codando.Shared;
 using System.IO;
 using System.Text;
 
 namespace Codando.Gerador.Motor
 {
-    class GeradorSolutionFile
+    class GeradorSolution
     {
         private readonly Solucao _solucao;
 
-        public GeradorSolutionFile(Solucao solucao)
+        public GeradorSolution(Solucao solucao)
         {
             this._solucao = solucao;
         }
 
-        public void Gerar()
+        public void Gerar(ShowProgresso showProgresso)
         {
             var _str = new StringBuilder();
 
@@ -58,7 +59,8 @@ namespace Codando.Gerador.Motor
             using (var sw = new StreamWriter(_solucao.GetCaminhoCompletoSolucao(), false))
             {
                 sw.WriteLine(_str.ToString());
-            } 
+            }
+            showProgresso("Arquivo gerado " + _solucao.GetCaminhoCompletoSolucao());
         }
     }
 }
