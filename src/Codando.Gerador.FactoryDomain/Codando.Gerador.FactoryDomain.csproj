@@ -45,7 +45,6 @@
     <Compile Include="LiguagemGeracao.cs" />
     <Compile Include="ParametrosGeracao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Tabela.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Codando.Config\Codando.Config.csproj">

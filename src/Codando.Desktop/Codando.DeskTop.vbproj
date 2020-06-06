@@ -99,6 +99,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmSolucoes.Designer.vb">
+      <DependentUpon>FrmSolucoes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSolucoes.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="old-remover-no-futuro\formConfigurarConexao.Designer.vb">
       <DependentUpon>formConfigurarConexao.vb</DependentUpon>
     </Compile>
@@ -142,6 +148,9 @@
     <Compile Include="ViewNotification.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="FrmSolucoes.resx">
+      <DependentUpon>FrmSolucoes.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="old-remover-no-futuro\formConfigurarConexao.resx">
       <DependentUpon>formConfigurarConexao.vb</DependentUpon>
     </EmbeddedResource>

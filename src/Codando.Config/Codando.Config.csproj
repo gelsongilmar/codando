@@ -44,10 +44,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConfigCodando.cs" />
+    <Compile Include="Configuracao.cs" />
+    <Compile Include="geracao\ConfiguracaoGeracao.cs" />
+    <Compile Include="geracao\SolucaoGerada.cs" />
     <Compile Include="old-remover-no-futuro\ConfigCodandoOld.cs" />
     <Compile Include="old-remover-no-futuro\ConfigCodandoSolucaoOld.cs" />
     <Compile Include="old-remover-no-futuro\ConfiguracaoOld.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SolucaoCodando.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

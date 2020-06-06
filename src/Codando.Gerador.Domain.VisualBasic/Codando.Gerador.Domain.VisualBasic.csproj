@@ -41,13 +41,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Projeto.cs" />
+    <Compile Include="ProjetoDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Codando.Gerador.Domain.Base\Codando.Gerador.Domain.Base.csproj">
       <Project>{943eefb0-2ade-4eaa-b455-2592f69fb67e}</Project>
       <Name>Codando.Gerador.Domain.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Codando.Shared\Codando.Shared.csproj">
+      <Project>{D45F248C-9A82-4BBE-944E-95262A5FD980}</Project>
+      <Name>Codando.Shared</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

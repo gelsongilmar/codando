@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Codando.Shared
+namespace Codando.Gerador.Domain.Base
 {
    public class Diretorios
     {

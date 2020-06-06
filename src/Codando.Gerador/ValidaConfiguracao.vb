@@ -11,7 +11,7 @@ Public Class ValidaConfiguracao
 
     Public Overrides Sub Validar()
         If config Is Nothing Then
-            AddNotification("Informe a configuração a ser validara")
+            AddNotification("Informe a configuração a ser validada")
         Else
             ValidarPastaGeracaoPreenchida()
             ValidarPastaGeracaoExistente()

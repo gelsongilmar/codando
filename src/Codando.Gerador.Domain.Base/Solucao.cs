@@ -1,15 +1,15 @@
-﻿using Codando.Config;
+﻿using Codando.Config.geracao;
 using System.Collections.Generic;
 
 namespace Codando.Gerador.Domain.Base
 {
     public class Solucao
     {
-        private readonly ConfigCodandoSolucaoOld _configuracao;
+        private readonly SolucaoGerada _configuracao;
 
         public List<Projeto> Projetos { get; set; }
 
-        public Solucao(ConfigCodandoSolucaoOld configuracao)
+        public Solucao(SolucaoGerada configuracao)
         {
             _configuracao = configuracao;
             this.Projetos = new List<Projeto>();
@@ -17,12 +17,12 @@ namespace Codando.Gerador.Domain.Base
 
         public string GetNomeSolucao()
         {
-            return _configuracao.NomeSolucao;
+            return _configuracao.NomeGeracao;
         }
 
         public string GetDiretorioSolucao()
         {
-            return _configuracao.PastaGeracaoSolucao;
+            return _configuracao.SolucaoCodando.PastaGeracaoSolucao;
         }
 
         public string GetCaminhoCompletoSolucao(string extensao = ".sln")
