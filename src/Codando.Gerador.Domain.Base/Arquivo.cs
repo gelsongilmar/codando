@@ -9,8 +9,10 @@ namespace Codando.Gerador.Domain.Base
     public abstract class Arquivo
     {
         public String Nome { get; set; }
+        public String Extensao { get; set; }
 
-        public abstract String GetConteudo();
+        public abstract String GetConteudoRegerado();
+        public abstract String GetConteudoGeradoApenasUmaVez();
 
     }
 }

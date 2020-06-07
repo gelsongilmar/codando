@@ -8,12 +8,18 @@ namespace Codando.Gerador.Domain.VisualBasic.ProjetoDAL
 {
     class ArquivoDelegates : Base.Arquivo
     {
-        public ArquivoDelegates(String nome)
+        public ArquivoDelegates()
         {
-            this.Nome = nome;
+            this.Nome = "Delegates";
+            this.Extensao = ".vb";
         }
 
-        public override string GetConteudo()
+        public override string GetConteudoGeradoApenasUmaVez()
+        {
+            return "";
+        }
+
+        public override string GetConteudoRegerado()
         {
             var _str = new StringBuilder();
 

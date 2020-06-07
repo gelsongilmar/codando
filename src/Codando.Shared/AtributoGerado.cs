@@ -9,6 +9,9 @@ namespace Codando.Shared
     public class AtributoGerado
     { 
         public String Nome { get; set; }
+        public TipoAtributoBase Tipo { get; set; }
+        public bool IsPK { get; set; }
+        public bool IsAutoIncremento { get; set; }
 
         public AtributoGerado(String nome)
         {

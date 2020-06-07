@@ -1,4 +1,5 @@
 ﻿using Codando.Gerador.Domain.Base;
+using Codando.Shared;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,10 +13,33 @@ namespace Codando.Gerador.FactoryDomain
         public Solucao GetSolucao(ParametrosGeracao parametrosGeracao) {
 
             var solucao = new Solucao(parametrosGeracao.ConfigSolucao);
-            solucao.Entidades = parametrosGeracao.ConfigSolucao.Entidades;
+            solucao.Entidades = DefinirTiposAtributos(parametrosGeracao);
             solucao.Projetos.Add(GetProjetoDAL(parametrosGeracao, solucao));
             return solucao;
 
+        }
+
+        private List<EntidadeGerada> DefinirTiposAtributos(ParametrosGeracao parametrosGeracao)
+        {
+            var ret = new List<EntidadeGerada>();
+            foreach (var e in parametrosGeracao.ConfigSolucao.Entidades)
+            {
+                foreach (var a in e.Atributos)
+                {
+                    if (parametrosGeracao.LinguagemGeracao == LinguagemGeracao.CSharp)
+                    {
+                        //TODO: Falta Fazer Para CSharp
+                    }
+
+                    if (parametrosGeracao.LinguagemGeracao == LinguagemGeracao.VisualBasic)
+                    {
+                        a.Tipo = new Domain.VisualBasic.TiposAtributo.FactoryTipoAtributo().GetTipoAtributo(a.Tipo);
+                    }
+
+                }
+
+            }
+            return ret;
         }
 
         private Domain.Base.Projeto GetProjetoDAL(ParametrosGeracao parametrosGeracao, Solucao solucao)

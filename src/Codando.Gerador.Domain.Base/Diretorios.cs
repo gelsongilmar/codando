@@ -8,11 +8,12 @@ using System.Threading.Tasks;
 
 namespace Codando.Gerador.Domain.Base
 {
-   public class Diretorios
+    public class Diretorios
     {
         public static void CriarPastaSeNaoExiste(string folder, ShowProgresso showProgresso)
         {
-            if (!System.IO.Directory.Exists(folder)) {
+            if (!System.IO.Directory.Exists(folder))
+            {
                 System.IO.Directory.CreateDirectory(folder);
                 showProgresso("Diretório " + folder + " gerado");
             }
@@ -41,13 +42,32 @@ namespace Codando.Gerador.Domain.Base
         {
             foreach (var arquivo in arquivos)
             {
-                using (var sw = new StreamWriter(local + "\\" + arquivo.Nome, false))
+                var pathArquivo = local + "\\" + arquivo.Nome + ".codando" + arquivo.Extensao;
+                var conteudo = arquivo.GetConteudoRegerado();
+                if (conteudo.Trim() != "")
                 {
-                    sw.WriteLine(arquivo.GetConteudo());
+                    SalvarArquivo(showProgresso, pathArquivo, conteudo);
                 }
-                showProgresso("Arquivo " + arquivo.Nome + " gerado em " + local);
+
+                pathArquivo = local + "\\" + arquivo.Nome + arquivo.Extensao;
+                conteudo = arquivo.GetConteudoGeradoApenasUmaVez();
+                if (conteudo.Trim() != "")
+                {
+                    if (!File.Exists(pathArquivo))
+                    {
+                        SalvarArquivo(showProgresso, pathArquivo, conteudo);
+                    }
+                }
             }
         }
 
+        private static void SalvarArquivo(ShowProgresso showProgresso, string pathArquivo, string conteudo)
+        {
+            using (var sw = new StreamWriter(pathArquivo, false))
+            {
+                sw.WriteLine(conteudo);
+            }
+            showProgresso("Arquivo " + pathArquivo + " gerado.");
+        }
     }
 }

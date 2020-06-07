@@ -44,6 +44,14 @@
     <Compile Include="ProjetoDAL\ArquivoEntidade.cs" />
     <Compile Include="ProjetoDAL\ProjetoDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TiposAtributo\FactoryTipoAtributo.cs" />
+    <Compile Include="TiposAtributo\TipoAtributoData.cs" />
+    <Compile Include="TiposAtributo\TipoAtributoDataHora.cs" />
+    <Compile Include="TiposAtributo\TipoAtributoLiteral.cs" />
+    <Compile Include="TiposAtributo\TipoAtributoLogico.cs" />
+    <Compile Include="TiposAtributo\TipoAtributoNumeroInteiro.cs" />
+    <Compile Include="TiposAtributo\TipoAtributoNumeroReal.cs" />
+    <Compile Include="TiposAtributo\TipoAtributoTexto.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Codando.Gerador.Domain.Base\Codando.Gerador.Domain.Base.csproj">

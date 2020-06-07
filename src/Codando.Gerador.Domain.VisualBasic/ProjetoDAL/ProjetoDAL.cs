@@ -39,16 +39,13 @@ namespace Codando.Gerador.Domain.VisualBasic.ProjetoDAL
 
         private Pasta GetPastaDelegates()
         {
-
             var pasta = new Pasta("DELEGATES");
-            pasta.AddArquivo(new ArquivoDelegates("Delegates.vb"));
-
+            pasta.AddArquivo(new ArquivoDelegates());
             return pasta;
         }
 
         private Pasta GetPastaGeral()
         {
-
             var pasta = new Pasta("GERAL");
 
             return pasta;
