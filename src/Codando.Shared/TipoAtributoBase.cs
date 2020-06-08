@@ -9,5 +9,10 @@ namespace Codando.Shared
     public class TipoAtributoBase
     {
         public ETipoAtributoGerado Tipo { get; set; }
+
+        public TipoAtributoBase()
+        {
+            this.Tipo = ETipoAtributoGerado.Literal;
+        }
     }
 }

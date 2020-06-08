@@ -37,6 +37,7 @@ namespace Codando.Gerador.FactoryDomain
                     }
 
                 }
+                ret.Add(e);
 
             }
             return ret;

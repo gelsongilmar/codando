@@ -60,7 +60,13 @@ Public Class FrmGerar
             End If
 
             ltbEntidades.SelectedIndex = i
+            pnlPropriedadesEntidade.Visible = True
+            pnlAtributos.Visible = True
 
+        Else
+            pnlPropriedadeAtributos.Visible = False
+            pnlAtributos.Visible = False
+            pnlPropriedadesEntidade.Visible = False
         End If
 
     End Sub
@@ -122,7 +128,7 @@ Public Class FrmGerar
         txtOutPut.AppendText(vbCrLf & Now.ToString() & ": " & msg)
     End Sub
 
-    Private Sub btnAddNovaEntidade_Click(sender As Object, e As EventArgs)
+    Private Sub btnAddNovaEntidade_Click(sender As Object, e As EventArgs) Handles btnAddNovaEntidade.Click
         AddNovaEntidade()
     End Sub
 
@@ -144,7 +150,7 @@ Public Class FrmGerar
 
     End Sub
 
-    Private Sub txtNomeEntidade_KeyDown(sender As Object, e As KeyEventArgs)
+    Private Sub txtNomeEntidade_KeyDown(sender As Object, e As KeyEventArgs) Handles txtNomeEntidade.KeyDown
         If e.KeyCode = Keys.Enter Then
             AddNovaEntidade()
         End If
@@ -175,8 +181,15 @@ Public Class FrmGerar
                     i = 0
                 End If
 
-                ltbAtributos.SelectedIndex = i
+                If i > ltbAtributos.Items.Count - 1 Then
+                    i = ltbAtributos.Items.Count - 1
+                End If
 
+                ltbAtributos.SelectedIndex = i
+                pnlPropriedadeAtributos.Visible = True
+
+            Else
+                pnlPropriedadeAtributos.Visible = False
             End If
 
         End If
@@ -201,7 +214,7 @@ Public Class FrmGerar
         Me.PreencherConfgGeracaoSelecionada()
         Me.CarregarInformacoes()
 
-        txtNomeEntidade.Text = ""
+        txtNomeAtributo.Text = ""
     End Sub
 
     Private Sub txtNomeAtributo_KeyDown(sender As Object, e As KeyEventArgs) Handles txtNomeAtributo.KeyDown
@@ -221,8 +234,97 @@ Public Class FrmGerar
 
 
             txtPropNomeAtributo.Text = _atributoSelecionado.Nome
+            cmbPropTipoAtributo.SelectedIndex = _atributoSelecionado.Tipo?.Tipo
+
+            txtPropTamanhoAtributo.Text = ""
+            If Not txtPropTamanhoAtributo.ReadOnly Then
+                txtPropTamanhoAtributo.Text = _atributoSelecionado.Tamanho
+            End If
+
+            txtPropPrecisaoAtributo.Text = ""
+            If Not txtPropPrecisaoAtributo.ReadOnly Then
+                txtPropPrecisaoAtributo.Text = _atributoSelecionado.Precisao
+            End If
+
+            If _atributoSelecionado.IsNulo Then
+                cmbPropAtributoIsNulo.SelectedIndex = 0
+            Else
+                cmbPropAtributoIsNulo.SelectedIndex = 1
+            End If
+
+            If _atributoSelecionado.IsAutoIncremento Then
+                cmbPropAtributoAutoInremento.SelectedIndex = 0
+            Else
+                cmbPropAtributoAutoInremento.SelectedIndex = 1
+            End If
+
+            If _atributoSelecionado.IsPK Then
+                cmbPropAtributoPK.SelectedIndex = 0
+            Else
+                cmbPropAtributoPK.SelectedIndex = 1
+            End If
 
         End If
+
+    End Sub
+
+    Private Sub cmbPropTipoAtributo_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbPropTipoAtributo.SelectedIndexChanged
+        txtPropTamanhoAtributo.ReadOnly = cmbPropTipoAtributo.SelectedIndex <> 0 And cmbPropTipoAtributo.SelectedIndex <> 3
+        txtPropPrecisaoAtributo.ReadOnly = cmbPropTipoAtributo.SelectedIndex <> 3
+
+        If txtPropTamanhoAtributo.ReadOnly Then
+            txtPropTamanhoAtributo.Text = ""
+        End If
+
+        If txtPropPrecisaoAtributo.ReadOnly Then
+            txtPropPrecisaoAtributo.Text = ""
+        End If
+
+    End Sub
+
+    Private Sub SalvarPropriedadesAtributo()
+
+        _atributoSelecionado.Tipo.Tipo = cmbPropTipoAtributo.SelectedIndex
+
+        Dim tamanho As Integer = -1
+        If Integer.TryParse(txtPropTamanhoAtributo.Text, tamanho) Then
+            _atributoSelecionado.Tamanho = tamanho
+        Else
+            _atributoSelecionado.Tamanho = -1
+        End If
+
+        Dim precisao As Integer = -1
+        If Integer.TryParse(txtPropPrecisaoAtributo.Text, precisao) Then
+            _atributoSelecionado.Precisao = precisao
+        Else
+            _atributoSelecionado.Precisao = -1
+        End If
+
+        _atributoSelecionado.IsNulo = cmbPropAtributoIsNulo.SelectedIndex = 0
+        _atributoSelecionado.IsPK = cmbPropAtributoPK.SelectedIndex = 0
+        _atributoSelecionado.IsAutoIncremento = cmbPropAtributoAutoInremento.SelectedIndex = 0
+
+        Dim configGeracao As New ConfiguracaoGeracao(_configSelecionada)
+        configGeracao.SetConfig(_configGeracaoSelecionada)
+
+        Me.PreencherConfgGeracaoSelecionada()
+        Me.CarregarInformacoes()
+
+    End Sub
+
+    Private Sub btnSalvarPropriedadesAtributos_Click(sender As Object, e As EventArgs) Handles btnSalvarPropriedadesAtributos.Click
+        Me.SalvarPropriedadesAtributo()
+    End Sub
+
+    Private Sub btnExcluirAtributo_Click(sender As Object, e As EventArgs) Handles btnExcluirAtributo.Click
+
+        _entidadeSelecionada.Atributos.Remove(_atributoSelecionado)
+
+        Dim configGeracao As New ConfiguracaoGeracao(_configSelecionada)
+        configGeracao.SetConfig(_configGeracaoSelecionada)
+
+        Me.PreencherConfgGeracaoSelecionada()
+        Me.CarregarInformacoes()
 
     End Sub
 

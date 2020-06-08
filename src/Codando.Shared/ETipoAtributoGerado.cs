@@ -8,12 +8,12 @@ namespace Codando.Shared
 {
     public enum ETipoAtributoGerado
     {
-        Literal,
-        Texto,
-        NumeralInteiro,
-        NumeralReal,
-        Logico,
-        Data,
-        DataHora
+        Literal = 0,
+        Texto = 1,
+        NumeralInteiro = 2,
+        NumeralReal = 3,
+        Logico = 4,
+        Data = 5,
+        DataHora = 6
     }
 }

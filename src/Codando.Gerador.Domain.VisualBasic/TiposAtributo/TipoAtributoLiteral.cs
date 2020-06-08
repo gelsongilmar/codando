@@ -10,19 +10,26 @@ namespace Codando.Gerador.Domain.VisualBasic.TiposAtributo
 {
     class TipoAtributoLiteral : TipoAtributoBaseGeracao
     {
-        public override string ObterTipoBDCompleto(ETipoAtributoGerado tipoAtributo, string p_tamanho, string p_precisao, string p_escala)
+        public override string ObterTipoBDCompleto(int p_tamanho, int p_precisao)
         {
-            throw new NotImplementedException();
+            if (p_tamanho < 0)
+            {
+                return "Varchar(MAX)";
+            }
+            else
+            {
+                return "Varchar(" + p_tamanho.ToString() + ")";
+            }
         }
 
-        public override string ObterTipoSqlDbType(ETipoAtributoGerado tipoAtributo, string p_tamanho)
+        public override string ObterTipoSqlDbType(int p_tamanho)
         {
-            throw new NotImplementedException();
+            if (p_tamanho < 0) {
+                p_tamanho = -1;
+            }
+            return "VarChar, " + p_tamanho.ToString();
         }
 
-        public override string ObterTipoVbNet(string p_nomeCampoBD)
-        {
-            throw new NotImplementedException();
-        }
+        public override string ObterTipoVbNet() => "String";
     }
 }

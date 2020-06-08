@@ -10,6 +10,7 @@ namespace Codando.Gerador.Domain.Base
     {
         public String Nome { get; set; }
         public String Extensao { get; set; }
+        public bool UsarArquivoSeparadoParaRegerar { get; set; } = true;
 
         public abstract String GetConteudoRegerado();
         public abstract String GetConteudoGeradoApenasUmaVez();

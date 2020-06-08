@@ -42,21 +42,49 @@ namespace Codando.Gerador.Domain.Base
         {
             foreach (var arquivo in arquivos)
             {
-                var pathArquivo = local + "\\" + arquivo.Nome + ".codando" + arquivo.Extensao;
-                var conteudo = arquivo.GetConteudoRegerado();
-                if (conteudo.Trim() != "")
+                if (arquivo.UsarArquivoSeparadoParaRegerar)
                 {
-                    SalvarArquivo(showProgresso, pathArquivo, conteudo);
+                    GerarArquivoRegeravel(local, showProgresso, arquivo);
+                    GerarArquivoNaoRegeravel(local, showProgresso, arquivo);
+                }
+                else
+                {
+                    GerarArquivoNaoRegeravel(local, showProgresso, arquivo);
+                    GerarArquivoRegeravel(local, showProgresso, arquivo);
+
                 }
 
+            }
+        }
+
+        private static void GerarArquivoRegeravel(string local, ShowProgresso showProgresso, Arquivo arquivo)
+        {
+            var pathArquivo = "";
+            if (arquivo.UsarArquivoSeparadoParaRegerar)
+            {
+                pathArquivo = local + "\\" + arquivo.Nome + ".codando" + arquivo.Extensao;
+            }
+            else
+            {
                 pathArquivo = local + "\\" + arquivo.Nome + arquivo.Extensao;
-                conteudo = arquivo.GetConteudoGeradoApenasUmaVez();
-                if (conteudo.Trim() != "")
+
+            }
+            var conteudo = arquivo.GetConteudoRegerado();
+            if (conteudo.Trim() != "")
+            {
+                SalvarArquivo(showProgresso, pathArquivo, conteudo);
+            }
+        }
+
+        private static void GerarArquivoNaoRegeravel(string local, ShowProgresso showProgresso, Arquivo arquivo)
+        {
+            var pathArquivo = local + "\\" + arquivo.Nome + arquivo.Extensao;
+            var conteudo = arquivo.GetConteudoGeradoApenasUmaVez();
+            if (conteudo.Trim() != "")
+            {
+                if (!File.Exists(pathArquivo))
                 {
-                    if (!File.Exists(pathArquivo))
-                    {
-                        SalvarArquivo(showProgresso, pathArquivo, conteudo);
-                    }
+                    SalvarArquivo(showProgresso, pathArquivo, conteudo);
                 }
             }
         }

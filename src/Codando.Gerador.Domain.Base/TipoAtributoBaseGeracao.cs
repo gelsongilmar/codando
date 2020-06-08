@@ -9,9 +9,9 @@ namespace Codando.Gerador.Domain.Base
 {
     public abstract class TipoAtributoBaseGeracao : TipoAtributoBase
     {
-        public abstract string ObterTipoSqlDbType(ETipoAtributoGerado tipoAtributo, string p_tamanho);
-        public abstract string ObterTipoBDCompleto(ETipoAtributoGerado tipoAtributo, string p_tamanho, string p_precisao, string p_escala);
-        public abstract string ObterTipoVbNet(string p_nomeCampoBD);
+        public abstract string ObterTipoSqlDbType(int p_tamanho);
+        public abstract string ObterTipoBDCompleto(int p_tamanho, int p_precisao);
+        public abstract string ObterTipoVbNet();
 
     }
 }

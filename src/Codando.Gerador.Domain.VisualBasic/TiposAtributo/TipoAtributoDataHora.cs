@@ -10,19 +10,10 @@ namespace Codando.Gerador.Domain.VisualBasic.TiposAtributo
 {
     class TipoAtributoDataHora : TipoAtributoBaseGeracao
     {
-        public override string ObterTipoBDCompleto(ETipoAtributoGerado tipoAtributo, string p_tamanho, string p_precisao, string p_escala)
-        {
-            throw new NotImplementedException();
-        }
+        public override string ObterTipoBDCompleto(int p_tamanho, int p_precisao) => "DateTime";
 
-        public override string ObterTipoSqlDbType(ETipoAtributoGerado tipoAtributo, string p_tamanho)
-        {
-            throw new NotImplementedException();
-        }
+        public override string ObterTipoSqlDbType(int p_tamanho) => "DateTime";
 
-        public override string ObterTipoVbNet(string p_nomeCampoBD)
-        {
-            throw new NotImplementedException();
-        }
+        public override string ObterTipoVbNet() => "DateTime";
     }
 }

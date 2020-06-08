@@ -10,19 +10,8 @@ namespace Codando.Gerador.Domain.VisualBasic.TiposAtributo
 {
     class TipoAtributoNumeroReal : TipoAtributoBaseGeracao
     {
-        public override string ObterTipoBDCompleto(ETipoAtributoGerado tipoAtributo, string p_tamanho, string p_precisao, string p_escala)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override string ObterTipoSqlDbType(ETipoAtributoGerado tipoAtributo, string p_tamanho)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override string ObterTipoVbNet(string p_nomeCampoBD)
-        {
-            throw new NotImplementedException();
-        }
+        public override string ObterTipoBDCompleto(int p_tamanho, int p_precisao) => "Decimal(" + p_tamanho.ToString() + "," + p_precisao.ToString() + ")";
+        public override string ObterTipoSqlDbType(int p_tamanho) => "Decimal";
+        public override string ObterTipoVbNet() => "Decimal";
     }
 }

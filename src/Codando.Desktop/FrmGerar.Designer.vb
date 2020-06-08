@@ -40,14 +40,14 @@ Partial Class FrmGerar
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.pnlTopoEntidades = New System.Windows.Forms.Panel()
         Me.lblTituloEntidades = New System.Windows.Forms.Label()
-        Me.Panel5 = New System.Windows.Forms.Panel()
+        Me.pnlPropriedadesEntidade = New System.Windows.Forms.Panel()
         Me.Panel15 = New System.Windows.Forms.Panel()
         Me.txtPropNomeEntidade = New System.Windows.Forms.TextBox()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.Panel7 = New System.Windows.Forms.Panel()
         Me.Panel8 = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.Panel6 = New System.Windows.Forms.Panel()
+        Me.pnlAtributos = New System.Windows.Forms.Panel()
         Me.ltbAtributos = New System.Windows.Forms.ListBox()
         Me.Panel14 = New System.Windows.Forms.Panel()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
@@ -56,27 +56,53 @@ Partial Class FrmGerar
         Me.Panel9 = New System.Windows.Forms.Panel()
         Me.Panel10 = New System.Windows.Forms.Panel()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.Panel11 = New System.Windows.Forms.Panel()
-        Me.Panel12 = New System.Windows.Forms.Panel()
-        Me.Panel13 = New System.Windows.Forms.Panel()
-        Me.Label3 = New System.Windows.Forms.Label()
+        Me.pnlPropriedadeAtributos = New System.Windows.Forms.Panel()
+        Me.btnExcluirAtributo = New System.Windows.Forms.Button()
+        Me.btnSalvarPropriedadesAtributos = New System.Windows.Forms.Button()
+        Me.Panel22 = New System.Windows.Forms.Panel()
+        Me.cmbPropAtributoAutoInremento = New System.Windows.Forms.ComboBox()
+        Me.TextBox10 = New System.Windows.Forms.TextBox()
+        Me.Panel21 = New System.Windows.Forms.Panel()
+        Me.cmbPropAtributoPK = New System.Windows.Forms.ComboBox()
+        Me.TextBox8 = New System.Windows.Forms.TextBox()
+        Me.Panel20 = New System.Windows.Forms.Panel()
+        Me.cmbPropAtributoIsNulo = New System.Windows.Forms.ComboBox()
+        Me.TextBox9 = New System.Windows.Forms.TextBox()
+        Me.Panel19 = New System.Windows.Forms.Panel()
+        Me.txtPropPrecisaoAtributo = New System.Windows.Forms.TextBox()
+        Me.TextBox7 = New System.Windows.Forms.TextBox()
+        Me.Panel18 = New System.Windows.Forms.Panel()
+        Me.txtPropTamanhoAtributo = New System.Windows.Forms.TextBox()
+        Me.TextBox5 = New System.Windows.Forms.TextBox()
+        Me.Panel17 = New System.Windows.Forms.Panel()
+        Me.cmbPropTipoAtributo = New System.Windows.Forms.ComboBox()
+        Me.TextBox4 = New System.Windows.Forms.TextBox()
         Me.Panel16 = New System.Windows.Forms.Panel()
         Me.txtPropNomeAtributo = New System.Windows.Forms.TextBox()
         Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.Panel12 = New System.Windows.Forms.Panel()
+        Me.Panel13 = New System.Windows.Forms.Panel()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.menuGeral.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.pnlTopoEntidades.SuspendLayout()
-        Me.Panel5.SuspendLayout()
+        Me.pnlPropriedadesEntidade.SuspendLayout()
         Me.Panel15.SuspendLayout()
         Me.Panel8.SuspendLayout()
-        Me.Panel6.SuspendLayout()
+        Me.pnlAtributos.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.Panel10.SuspendLayout()
-        Me.Panel11.SuspendLayout()
-        Me.Panel13.SuspendLayout()
+        Me.pnlPropriedadeAtributos.SuspendLayout()
+        Me.Panel22.SuspendLayout()
+        Me.Panel21.SuspendLayout()
+        Me.Panel20.SuspendLayout()
+        Me.Panel19.SuspendLayout()
+        Me.Panel18.SuspendLayout()
+        Me.Panel17.SuspendLayout()
         Me.Panel16.SuspendLayout()
+        Me.Panel13.SuspendLayout()
         Me.SuspendLayout()
         '
         'menuGeral
@@ -252,18 +278,18 @@ Partial Class FrmGerar
         Me.lblTituloEntidades.TabIndex = 18
         Me.lblTituloEntidades.Text = "Entidades"
         '
-        'Panel5
+        'pnlPropriedadesEntidade
         '
-        Me.Panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel5.Controls.Add(Me.Panel15)
-        Me.Panel5.Controls.Add(Me.Panel7)
-        Me.Panel5.Controls.Add(Me.Panel8)
-        Me.Panel5.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Panel5.Location = New System.Drawing.Point(250, 55)
-        Me.Panel5.Name = "Panel5"
-        Me.Panel5.Padding = New System.Windows.Forms.Padding(10)
-        Me.Panel5.Size = New System.Drawing.Size(250, 556)
-        Me.Panel5.TabIndex = 5
+        Me.pnlPropriedadesEntidade.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.pnlPropriedadesEntidade.Controls.Add(Me.Panel15)
+        Me.pnlPropriedadesEntidade.Controls.Add(Me.Panel7)
+        Me.pnlPropriedadesEntidade.Controls.Add(Me.Panel8)
+        Me.pnlPropriedadesEntidade.Dock = System.Windows.Forms.DockStyle.Left
+        Me.pnlPropriedadesEntidade.Location = New System.Drawing.Point(250, 55)
+        Me.pnlPropriedadesEntidade.Name = "pnlPropriedadesEntidade"
+        Me.pnlPropriedadesEntidade.Padding = New System.Windows.Forms.Padding(10)
+        Me.pnlPropriedadesEntidade.Size = New System.Drawing.Size(250, 556)
+        Me.pnlPropriedadesEntidade.TabIndex = 5
         '
         'Panel15
         '
@@ -327,20 +353,20 @@ Partial Class FrmGerar
         Me.Label1.TabIndex = 20
         Me.Label1.Text = "Propriedades da Entidade Selecionada"
         '
-        'Panel6
+        'pnlAtributos
         '
-        Me.Panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel6.Controls.Add(Me.ltbAtributos)
-        Me.Panel6.Controls.Add(Me.Panel14)
-        Me.Panel6.Controls.Add(Me.GroupBox2)
-        Me.Panel6.Controls.Add(Me.Panel9)
-        Me.Panel6.Controls.Add(Me.Panel10)
-        Me.Panel6.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Panel6.Location = New System.Drawing.Point(500, 55)
-        Me.Panel6.Name = "Panel6"
-        Me.Panel6.Padding = New System.Windows.Forms.Padding(10)
-        Me.Panel6.Size = New System.Drawing.Size(250, 556)
-        Me.Panel6.TabIndex = 6
+        Me.pnlAtributos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.pnlAtributos.Controls.Add(Me.ltbAtributos)
+        Me.pnlAtributos.Controls.Add(Me.Panel14)
+        Me.pnlAtributos.Controls.Add(Me.GroupBox2)
+        Me.pnlAtributos.Controls.Add(Me.Panel9)
+        Me.pnlAtributos.Controls.Add(Me.Panel10)
+        Me.pnlAtributos.Dock = System.Windows.Forms.DockStyle.Left
+        Me.pnlAtributos.Location = New System.Drawing.Point(500, 55)
+        Me.pnlAtributos.Name = "pnlAtributos"
+        Me.pnlAtributos.Padding = New System.Windows.Forms.Padding(10)
+        Me.pnlAtributos.Size = New System.Drawing.Size(250, 556)
+        Me.pnlAtributos.TabIndex = 6
         '
         'ltbAtributos
         '
@@ -384,7 +410,6 @@ Partial Class FrmGerar
         '
         'txtNomeAtributo
         '
-        Me.txtNomeAtributo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtNomeAtributo.Location = New System.Drawing.Point(6, 19)
         Me.txtNomeAtributo.Name = "txtNomeAtributo"
         Me.txtNomeAtributo.Size = New System.Drawing.Size(160, 20)
@@ -420,48 +445,239 @@ Partial Class FrmGerar
         Me.Label2.TabIndex = 20
         Me.Label2.Text = "Atributos da Entidade Selecionada"
         '
-        'Panel11
+        'pnlPropriedadeAtributos
         '
-        Me.Panel11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel11.Controls.Add(Me.Panel16)
-        Me.Panel11.Controls.Add(Me.Panel12)
-        Me.Panel11.Controls.Add(Me.Panel13)
-        Me.Panel11.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Panel11.Location = New System.Drawing.Point(750, 55)
-        Me.Panel11.Name = "Panel11"
-        Me.Panel11.Padding = New System.Windows.Forms.Padding(10)
-        Me.Panel11.Size = New System.Drawing.Size(250, 556)
-        Me.Panel11.TabIndex = 7
+        Me.pnlPropriedadeAtributos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.pnlPropriedadeAtributos.Controls.Add(Me.btnExcluirAtributo)
+        Me.pnlPropriedadeAtributos.Controls.Add(Me.btnSalvarPropriedadesAtributos)
+        Me.pnlPropriedadeAtributos.Controls.Add(Me.Panel22)
+        Me.pnlPropriedadeAtributos.Controls.Add(Me.Panel21)
+        Me.pnlPropriedadeAtributos.Controls.Add(Me.Panel20)
+        Me.pnlPropriedadeAtributos.Controls.Add(Me.Panel19)
+        Me.pnlPropriedadeAtributos.Controls.Add(Me.Panel18)
+        Me.pnlPropriedadeAtributos.Controls.Add(Me.Panel17)
+        Me.pnlPropriedadeAtributos.Controls.Add(Me.Panel16)
+        Me.pnlPropriedadeAtributos.Controls.Add(Me.Panel12)
+        Me.pnlPropriedadeAtributos.Controls.Add(Me.Panel13)
+        Me.pnlPropriedadeAtributos.Dock = System.Windows.Forms.DockStyle.Left
+        Me.pnlPropriedadeAtributos.Location = New System.Drawing.Point(750, 55)
+        Me.pnlPropriedadeAtributos.Name = "pnlPropriedadeAtributos"
+        Me.pnlPropriedadeAtributos.Padding = New System.Windows.Forms.Padding(10)
+        Me.pnlPropriedadeAtributos.Size = New System.Drawing.Size(250, 556)
+        Me.pnlPropriedadeAtributos.TabIndex = 7
         '
-        'Panel12
+        'btnExcluirAtributo
         '
-        Me.Panel12.BackColor = System.Drawing.Color.White
-        Me.Panel12.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel12.Location = New System.Drawing.Point(10, 50)
-        Me.Panel12.Name = "Panel12"
-        Me.Panel12.Size = New System.Drawing.Size(228, 10)
-        Me.Panel12.TabIndex = 4
+        Me.btnExcluirAtributo.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnExcluirAtributo.Location = New System.Drawing.Point(46, 510)
+        Me.btnExcluirAtributo.Name = "btnExcluirAtributo"
+        Me.btnExcluirAtributo.Padding = New System.Windows.Forms.Padding(5)
+        Me.btnExcluirAtributo.Size = New System.Drawing.Size(93, 31)
+        Me.btnExcluirAtributo.TabIndex = 14
+        Me.btnExcluirAtributo.Text = "Excluir"
+        Me.btnExcluirAtributo.UseVisualStyleBackColor = True
         '
-        'Panel13
+        'btnSalvarPropriedadesAtributos
         '
-        Me.Panel13.BackColor = System.Drawing.Color.Gray
-        Me.Panel13.Controls.Add(Me.Label3)
-        Me.Panel13.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel13.Location = New System.Drawing.Point(10, 10)
-        Me.Panel13.Name = "Panel13"
-        Me.Panel13.Size = New System.Drawing.Size(228, 40)
-        Me.Panel13.TabIndex = 2
+        Me.btnSalvarPropriedadesAtributos.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSalvarPropriedadesAtributos.Location = New System.Drawing.Point(145, 510)
+        Me.btnSalvarPropriedadesAtributos.Name = "btnSalvarPropriedadesAtributos"
+        Me.btnSalvarPropriedadesAtributos.Padding = New System.Windows.Forms.Padding(5)
+        Me.btnSalvarPropriedadesAtributos.Size = New System.Drawing.Size(93, 31)
+        Me.btnSalvarPropriedadesAtributos.TabIndex = 13
+        Me.btnSalvarPropriedadesAtributos.Text = "Salvar Propriedades do Atributo"
+        Me.btnSalvarPropriedadesAtributos.UseVisualStyleBackColor = True
         '
-        'Label3
+        'Panel22
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.ForeColor = System.Drawing.Color.White
-        Me.Label3.Location = New System.Drawing.Point(3, 13)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(222, 15)
-        Me.Label3.TabIndex = 20
-        Me.Label3.Text = "Propriedades do Atributo Selecionado"
+        Me.Panel22.BackColor = System.Drawing.Color.White
+        Me.Panel22.Controls.Add(Me.cmbPropAtributoAutoInremento)
+        Me.Panel22.Controls.Add(Me.TextBox10)
+        Me.Panel22.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel22.Location = New System.Drawing.Point(10, 192)
+        Me.Panel22.Name = "Panel22"
+        Me.Panel22.Size = New System.Drawing.Size(228, 22)
+        Me.Panel22.TabIndex = 12
+        '
+        'cmbPropAtributoAutoInremento
+        '
+        Me.cmbPropAtributoAutoInremento.Dock = System.Windows.Forms.DockStyle.Left
+        Me.cmbPropAtributoAutoInremento.FormattingEnabled = True
+        Me.cmbPropAtributoAutoInremento.Items.AddRange(New Object() {"Sim", "Não"})
+        Me.cmbPropAtributoAutoInremento.Location = New System.Drawing.Point(100, 0)
+        Me.cmbPropAtributoAutoInremento.Name = "cmbPropAtributoAutoInremento"
+        Me.cmbPropAtributoAutoInremento.Size = New System.Drawing.Size(125, 21)
+        Me.cmbPropAtributoAutoInremento.TabIndex = 9
+        '
+        'TextBox10
+        '
+        Me.TextBox10.Dock = System.Windows.Forms.DockStyle.Left
+        Me.TextBox10.Font = New System.Drawing.Font("Calibri", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox10.Location = New System.Drawing.Point(0, 0)
+        Me.TextBox10.Name = "TextBox10"
+        Me.TextBox10.ReadOnly = True
+        Me.TextBox10.Size = New System.Drawing.Size(100, 22)
+        Me.TextBox10.TabIndex = 7
+        Me.TextBox10.Text = "Auto-Incremento:"
+        '
+        'Panel21
+        '
+        Me.Panel21.BackColor = System.Drawing.Color.White
+        Me.Panel21.Controls.Add(Me.cmbPropAtributoPK)
+        Me.Panel21.Controls.Add(Me.TextBox8)
+        Me.Panel21.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel21.Location = New System.Drawing.Point(10, 170)
+        Me.Panel21.Name = "Panel21"
+        Me.Panel21.Size = New System.Drawing.Size(228, 22)
+        Me.Panel21.TabIndex = 11
+        '
+        'cmbPropAtributoPK
+        '
+        Me.cmbPropAtributoPK.Dock = System.Windows.Forms.DockStyle.Left
+        Me.cmbPropAtributoPK.FormattingEnabled = True
+        Me.cmbPropAtributoPK.Items.AddRange(New Object() {"Sim", "Não"})
+        Me.cmbPropAtributoPK.Location = New System.Drawing.Point(100, 0)
+        Me.cmbPropAtributoPK.Name = "cmbPropAtributoPK"
+        Me.cmbPropAtributoPK.Size = New System.Drawing.Size(125, 21)
+        Me.cmbPropAtributoPK.TabIndex = 9
+        '
+        'TextBox8
+        '
+        Me.TextBox8.Dock = System.Windows.Forms.DockStyle.Left
+        Me.TextBox8.Font = New System.Drawing.Font("Calibri", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox8.Location = New System.Drawing.Point(0, 0)
+        Me.TextBox8.Name = "TextBox8"
+        Me.TextBox8.ReadOnly = True
+        Me.TextBox8.Size = New System.Drawing.Size(100, 22)
+        Me.TextBox8.TabIndex = 7
+        Me.TextBox8.Text = "Chave Primária:"
+        '
+        'Panel20
+        '
+        Me.Panel20.BackColor = System.Drawing.Color.White
+        Me.Panel20.Controls.Add(Me.cmbPropAtributoIsNulo)
+        Me.Panel20.Controls.Add(Me.TextBox9)
+        Me.Panel20.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel20.Location = New System.Drawing.Point(10, 148)
+        Me.Panel20.Name = "Panel20"
+        Me.Panel20.Size = New System.Drawing.Size(228, 22)
+        Me.Panel20.TabIndex = 10
+        '
+        'cmbPropAtributoIsNulo
+        '
+        Me.cmbPropAtributoIsNulo.Dock = System.Windows.Forms.DockStyle.Left
+        Me.cmbPropAtributoIsNulo.FormattingEnabled = True
+        Me.cmbPropAtributoIsNulo.Items.AddRange(New Object() {"Sim", "Não"})
+        Me.cmbPropAtributoIsNulo.Location = New System.Drawing.Point(100, 0)
+        Me.cmbPropAtributoIsNulo.Name = "cmbPropAtributoIsNulo"
+        Me.cmbPropAtributoIsNulo.Size = New System.Drawing.Size(125, 21)
+        Me.cmbPropAtributoIsNulo.TabIndex = 9
+        '
+        'TextBox9
+        '
+        Me.TextBox9.Dock = System.Windows.Forms.DockStyle.Left
+        Me.TextBox9.Font = New System.Drawing.Font("Calibri", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox9.Location = New System.Drawing.Point(0, 0)
+        Me.TextBox9.Name = "TextBox9"
+        Me.TextBox9.ReadOnly = True
+        Me.TextBox9.Size = New System.Drawing.Size(100, 22)
+        Me.TextBox9.TabIndex = 7
+        Me.TextBox9.Text = "Permite Vazio:"
+        '
+        'Panel19
+        '
+        Me.Panel19.BackColor = System.Drawing.Color.White
+        Me.Panel19.Controls.Add(Me.txtPropPrecisaoAtributo)
+        Me.Panel19.Controls.Add(Me.TextBox7)
+        Me.Panel19.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel19.Location = New System.Drawing.Point(10, 126)
+        Me.Panel19.Name = "Panel19"
+        Me.Panel19.Size = New System.Drawing.Size(228, 22)
+        Me.Panel19.TabIndex = 9
+        '
+        'txtPropPrecisaoAtributo
+        '
+        Me.txtPropPrecisaoAtributo.Dock = System.Windows.Forms.DockStyle.Left
+        Me.txtPropPrecisaoAtributo.Font = New System.Drawing.Font("Calibri", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtPropPrecisaoAtributo.Location = New System.Drawing.Point(100, 0)
+        Me.txtPropPrecisaoAtributo.Name = "txtPropPrecisaoAtributo"
+        Me.txtPropPrecisaoAtributo.ReadOnly = True
+        Me.txtPropPrecisaoAtributo.Size = New System.Drawing.Size(125, 22)
+        Me.txtPropPrecisaoAtributo.TabIndex = 8
+        '
+        'TextBox7
+        '
+        Me.TextBox7.Dock = System.Windows.Forms.DockStyle.Left
+        Me.TextBox7.Font = New System.Drawing.Font("Calibri", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox7.Location = New System.Drawing.Point(0, 0)
+        Me.TextBox7.Name = "TextBox7"
+        Me.TextBox7.ReadOnly = True
+        Me.TextBox7.Size = New System.Drawing.Size(100, 22)
+        Me.TextBox7.TabIndex = 7
+        Me.TextBox7.Text = "Precisão:"
+        '
+        'Panel18
+        '
+        Me.Panel18.BackColor = System.Drawing.Color.White
+        Me.Panel18.Controls.Add(Me.txtPropTamanhoAtributo)
+        Me.Panel18.Controls.Add(Me.TextBox5)
+        Me.Panel18.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel18.Location = New System.Drawing.Point(10, 104)
+        Me.Panel18.Name = "Panel18"
+        Me.Panel18.Size = New System.Drawing.Size(228, 22)
+        Me.Panel18.TabIndex = 8
+        '
+        'txtPropTamanhoAtributo
+        '
+        Me.txtPropTamanhoAtributo.Dock = System.Windows.Forms.DockStyle.Left
+        Me.txtPropTamanhoAtributo.Font = New System.Drawing.Font("Calibri", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtPropTamanhoAtributo.Location = New System.Drawing.Point(100, 0)
+        Me.txtPropTamanhoAtributo.Name = "txtPropTamanhoAtributo"
+        Me.txtPropTamanhoAtributo.Size = New System.Drawing.Size(125, 22)
+        Me.txtPropTamanhoAtributo.TabIndex = 8
+        '
+        'TextBox5
+        '
+        Me.TextBox5.Dock = System.Windows.Forms.DockStyle.Left
+        Me.TextBox5.Font = New System.Drawing.Font("Calibri", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox5.Location = New System.Drawing.Point(0, 0)
+        Me.TextBox5.Name = "TextBox5"
+        Me.TextBox5.ReadOnly = True
+        Me.TextBox5.Size = New System.Drawing.Size(100, 22)
+        Me.TextBox5.TabIndex = 7
+        Me.TextBox5.Text = "Tamanho:"
+        '
+        'Panel17
+        '
+        Me.Panel17.BackColor = System.Drawing.Color.White
+        Me.Panel17.Controls.Add(Me.cmbPropTipoAtributo)
+        Me.Panel17.Controls.Add(Me.TextBox4)
+        Me.Panel17.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel17.Location = New System.Drawing.Point(10, 82)
+        Me.Panel17.Name = "Panel17"
+        Me.Panel17.Size = New System.Drawing.Size(228, 22)
+        Me.Panel17.TabIndex = 7
+        '
+        'cmbPropTipoAtributo
+        '
+        Me.cmbPropTipoAtributo.Dock = System.Windows.Forms.DockStyle.Left
+        Me.cmbPropTipoAtributo.FormattingEnabled = True
+        Me.cmbPropTipoAtributo.Items.AddRange(New Object() {"Literal", "Texto", "Numeral Inteiro", "Numeral Real", "Lógico", "Data", "Data e Hora"})
+        Me.cmbPropTipoAtributo.Location = New System.Drawing.Point(100, 0)
+        Me.cmbPropTipoAtributo.Name = "cmbPropTipoAtributo"
+        Me.cmbPropTipoAtributo.Size = New System.Drawing.Size(125, 21)
+        Me.cmbPropTipoAtributo.TabIndex = 8
+        '
+        'TextBox4
+        '
+        Me.TextBox4.Dock = System.Windows.Forms.DockStyle.Left
+        Me.TextBox4.Font = New System.Drawing.Font("Calibri", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox4.Location = New System.Drawing.Point(0, 0)
+        Me.TextBox4.Name = "TextBox4"
+        Me.TextBox4.ReadOnly = True
+        Me.TextBox4.Size = New System.Drawing.Size(100, 22)
+        Me.TextBox4.TabIndex = 7
+        Me.TextBox4.Text = "Tipo:"
         '
         'Panel16
         '
@@ -495,15 +711,45 @@ Partial Class FrmGerar
         Me.TextBox3.TabIndex = 7
         Me.TextBox3.Text = "Nome:"
         '
+        'Panel12
+        '
+        Me.Panel12.BackColor = System.Drawing.Color.White
+        Me.Panel12.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel12.Location = New System.Drawing.Point(10, 50)
+        Me.Panel12.Name = "Panel12"
+        Me.Panel12.Size = New System.Drawing.Size(228, 10)
+        Me.Panel12.TabIndex = 4
+        '
+        'Panel13
+        '
+        Me.Panel13.BackColor = System.Drawing.Color.Gray
+        Me.Panel13.Controls.Add(Me.Label3)
+        Me.Panel13.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel13.Location = New System.Drawing.Point(10, 10)
+        Me.Panel13.Name = "Panel13"
+        Me.Panel13.Size = New System.Drawing.Size(228, 40)
+        Me.Panel13.TabIndex = 2
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.ForeColor = System.Drawing.Color.White
+        Me.Label3.Location = New System.Drawing.Point(3, 13)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(222, 15)
+        Me.Label3.TabIndex = 20
+        Me.Label3.Text = "Propriedades do Atributo Selecionado"
+        '
         'FrmGerar
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1008, 711)
-        Me.Controls.Add(Me.Panel11)
-        Me.Controls.Add(Me.Panel6)
-        Me.Controls.Add(Me.Panel5)
+        Me.Controls.Add(Me.pnlPropriedadeAtributos)
+        Me.Controls.Add(Me.pnlAtributos)
+        Me.Controls.Add(Me.pnlPropriedadesEntidade)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.txtOutPut)
         Me.Controls.Add(Me.Panel1)
@@ -522,21 +768,33 @@ Partial Class FrmGerar
         Me.GroupBox1.PerformLayout()
         Me.pnlTopoEntidades.ResumeLayout(False)
         Me.pnlTopoEntidades.PerformLayout()
-        Me.Panel5.ResumeLayout(False)
+        Me.pnlPropriedadesEntidade.ResumeLayout(False)
         Me.Panel15.ResumeLayout(False)
         Me.Panel15.PerformLayout()
         Me.Panel8.ResumeLayout(False)
         Me.Panel8.PerformLayout()
-        Me.Panel6.ResumeLayout(False)
+        Me.pnlAtributos.ResumeLayout(False)
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         Me.Panel10.ResumeLayout(False)
         Me.Panel10.PerformLayout()
-        Me.Panel11.ResumeLayout(False)
-        Me.Panel13.ResumeLayout(False)
-        Me.Panel13.PerformLayout()
+        Me.pnlPropriedadeAtributos.ResumeLayout(False)
+        Me.Panel22.ResumeLayout(False)
+        Me.Panel22.PerformLayout()
+        Me.Panel21.ResumeLayout(False)
+        Me.Panel21.PerformLayout()
+        Me.Panel20.ResumeLayout(False)
+        Me.Panel20.PerformLayout()
+        Me.Panel19.ResumeLayout(False)
+        Me.Panel19.PerformLayout()
+        Me.Panel18.ResumeLayout(False)
+        Me.Panel18.PerformLayout()
+        Me.Panel17.ResumeLayout(False)
+        Me.Panel17.PerformLayout()
         Me.Panel16.ResumeLayout(False)
         Me.Panel16.PerformLayout()
+        Me.Panel13.ResumeLayout(False)
+        Me.Panel13.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -558,13 +816,13 @@ Partial Class FrmGerar
     Friend WithEvents Panel3 As Panel
     Friend WithEvents ltbEntidades As ListBox
     Friend WithEvents Panel4 As Panel
-    Friend WithEvents Panel5 As Panel
+    Friend WithEvents pnlPropriedadesEntidade As Panel
     Friend WithEvents Panel7 As Panel
     Friend WithEvents Panel8 As Panel
-    Friend WithEvents Panel6 As Panel
+    Friend WithEvents pnlAtributos As Panel
     Friend WithEvents Panel9 As Panel
     Friend WithEvents Panel10 As Panel
-    Friend WithEvents Panel11 As Panel
+    Friend WithEvents pnlPropriedadeAtributos As Panel
     Friend WithEvents Panel12 As Panel
     Friend WithEvents Panel13 As Panel
     Friend WithEvents GroupBox2 As GroupBox
@@ -582,4 +840,24 @@ Partial Class FrmGerar
     Friend WithEvents Panel16 As Panel
     Friend WithEvents txtPropNomeAtributo As TextBox
     Friend WithEvents TextBox3 As TextBox
+    Friend WithEvents Panel17 As Panel
+    Friend WithEvents TextBox4 As TextBox
+    Friend WithEvents cmbPropTipoAtributo As ComboBox
+    Friend WithEvents Panel18 As Panel
+    Friend WithEvents txtPropTamanhoAtributo As TextBox
+    Friend WithEvents TextBox5 As TextBox
+    Friend WithEvents Panel20 As Panel
+    Friend WithEvents cmbPropAtributoIsNulo As ComboBox
+    Friend WithEvents TextBox9 As TextBox
+    Friend WithEvents Panel19 As Panel
+    Friend WithEvents txtPropPrecisaoAtributo As TextBox
+    Friend WithEvents TextBox7 As TextBox
+    Friend WithEvents Panel22 As Panel
+    Friend WithEvents cmbPropAtributoAutoInremento As ComboBox
+    Friend WithEvents TextBox10 As TextBox
+    Friend WithEvents Panel21 As Panel
+    Friend WithEvents cmbPropAtributoPK As ComboBox
+    Friend WithEvents TextBox8 As TextBox
+    Friend WithEvents btnSalvarPropriedadesAtributos As Button
+    Friend WithEvents btnExcluirAtributo As Button
 End Class

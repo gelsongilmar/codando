@@ -34,6 +34,7 @@ namespace Codando.Gerador.Domain.VisualBasic.ProjetoDAL
                 pasta.AddArquivo(new ArquivoEntidade(entidade));
             }
 
+            pasta.AddArquivo(new ArquivoVbProj(this));
             return pasta;
         }
 
