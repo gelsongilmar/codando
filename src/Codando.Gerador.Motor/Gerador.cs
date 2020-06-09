@@ -16,6 +16,8 @@ namespace Codando.Gerador.Motor
         { 
             new GeradorSolution(_solucao).Gerar(showProgresso);
             new GeradorProject(_solucao).Gerar(showProgresso);
+
+            System.Diagnostics.Process.Start((_solucao.GetCaminhoCompletoSolucao()).Replace("\\", "/"));
         }
     }
 }

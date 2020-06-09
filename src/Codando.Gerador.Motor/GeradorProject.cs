@@ -43,12 +43,14 @@ namespace Codando.Gerador.Motor
         private void CriarArquivosDaPasta(String local, Pasta pasta, ShowProgresso showProgresso)
         {
             var localCompleto = local + "\\" + pasta.Nome;
-            Diretorios.CriarArquivos(pasta.Arquivos, localCompleto, showProgresso);
 
             foreach (var subPasta in pasta.SubPastas)
             {
                 CriarArquivosDaPasta(localCompleto, subPasta, showProgresso);
             }
+
+            Diretorios.CriarArquivos(pasta.Arquivos, localCompleto, showProgresso);
+
         }
 
     }

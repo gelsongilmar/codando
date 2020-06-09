@@ -106,7 +106,7 @@ Public Class FrmGerar
         Dim motor As New Gerador.Motor.Gerador(_solucao)
         motor.Gerar(AddressOf ShowProgresso)
 
-        MessageBox.Show("Geração realizada com sucesso", "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        'MessageBox.Show("Geração realizada com sucesso", "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
     End Sub
 
@@ -326,6 +326,12 @@ Public Class FrmGerar
         Me.PreencherConfgGeracaoSelecionada()
         Me.CarregarInformacoes()
 
+    End Sub
+
+    Private Sub FrmGerar_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
+        If e.KeyCode = Keys.Escape Then
+            Close()
+        End If
     End Sub
 
 End Class

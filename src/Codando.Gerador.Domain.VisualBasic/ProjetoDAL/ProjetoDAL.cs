@@ -13,7 +13,6 @@ namespace Codando.Gerador.Domain.VisualBasic.ProjetoDAL
         {
             this.NomeProjeto = solucao.GetNomeSolucao() + ".DAL";
             this.ExtensaoProjeto = ".vbproj";
-            this.ExtensaoCodigo = ".vb";
             this.GuIdTipoProjeto = "F184B08F-C81C-45F6-A57F-5ABD9991F28F";
             this.GuIdProjeto = Guid.NewGuid().ToString();
 
@@ -48,7 +47,9 @@ namespace Codando.Gerador.Domain.VisualBasic.ProjetoDAL
         private Pasta GetPastaGeral()
         {
             var pasta = new Pasta("GERAL");
-
+            pasta.AddArquivo(new ArquivoBaseDAL());
+            pasta.AddArquivo(new ArquivoNotMappeableBDAttribute());
+            pasta.AddArquivo(new ArquivoSQLCommands());
             return pasta;
         }
 
@@ -56,7 +57,7 @@ namespace Codando.Gerador.Domain.VisualBasic.ProjetoDAL
         {
 
             var pasta = new Pasta("INTERFACE");
-
+            pasta.AddArquivo(new ArquivoIStrConexao());
             return pasta;
         }
 

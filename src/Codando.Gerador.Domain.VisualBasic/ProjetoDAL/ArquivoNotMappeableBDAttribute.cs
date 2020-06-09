@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Codando.Gerador.Domain.VisualBasic.ProjetoDAL
 {
-    class ArquivoDelegates : Base.Arquivo
+    class ArquivoNotMappeableBDAttribute : Base.Arquivo
     {
-        public ArquivoDelegates()
+        public ArquivoNotMappeableBDAttribute()
         {
-            this.Nome = "Delegates";
+            this.Nome = "NotMappeableBDAttribute";
             this.Extensao = ".vb";
         }
 
@@ -29,11 +29,9 @@ namespace Codando.Gerador.Domain.VisualBasic.ProjetoDAL
             _str.AppendLine("' Codando for executado");
             _str.AppendLine("'================================================");
             _str.AppendLine("");
-            _str.AppendLine("Imports System.Data.SqlClient");
-            _str.AppendLine("");
-            _str.AppendLine("Public Delegate Sub DelPreencherAtributos(dr As SqlDataReader)");
-            _str.AppendLine("Public Delegate Sub DelPreencherIdentidade(cmd As SqlCommand)");
-            _str.AppendLine("");
+            _str.AppendLine("Public Class NotMappeableBDAttribute");
+            _str.AppendLine("    Inherits Attribute");
+            _str.AppendLine("End Class");
 
             return _str.ToString();
         }

@@ -56,32 +56,25 @@ namespace Codando.Gerador.Domain.Base
 
             }
         }
-
+        
         private static void GerarArquivoRegeravel(string local, ShowProgresso showProgresso, Arquivo arquivo)
         {
-            var pathArquivo = "";
-            if (arquivo.UsarArquivoSeparadoParaRegerar)
-            {
-                pathArquivo = local + "\\" + arquivo.Nome + ".codando" + arquivo.Extensao;
-            }
-            else
-            {
-                pathArquivo = local + "\\" + arquivo.Nome + arquivo.Extensao;
-
-            }
+            var pathArquivo = local + "\\" + arquivo.GetNomeParaSalvarRegeravel();
             var conteudo = arquivo.GetConteudoRegerado();
             if (conteudo.Trim() != "")
             {
+                arquivo.GerouConteudoRegerado = true;
                 SalvarArquivo(showProgresso, pathArquivo, conteudo);
             }
         }
 
         private static void GerarArquivoNaoRegeravel(string local, ShowProgresso showProgresso, Arquivo arquivo)
         {
-            var pathArquivo = local + "\\" + arquivo.Nome + arquivo.Extensao;
+            var pathArquivo = local + "\\" + arquivo.GetNomeParaSalvarGeradoUmaVEz();
             var conteudo = arquivo.GetConteudoGeradoApenasUmaVez();
             if (conteudo.Trim() != "")
             {
+                arquivo.GerouConteudoGeradoApenasUmaVez = true;
                 if (!File.Exists(pathArquivo))
                 {
                     SalvarArquivo(showProgresso, pathArquivo, conteudo);

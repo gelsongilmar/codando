@@ -53,15 +53,98 @@ namespace Codando.Gerador.Domain.VisualBasic.ProjetoDAL
             _str.AppendLine("    <TargetFrameworkProfile />");
             _str.AppendLine("  </PropertyGroup>");
 
+
+            _str.AppendLine("  <PropertyGroup Condition=\" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' \">");
+            _str.AppendLine("    <DebugSymbols>true</DebugSymbols>");
+            _str.AppendLine("    <DebugType>full</DebugType>");
+            _str.AppendLine("    <DefineDebug>true</DefineDebug>");
+            _str.AppendLine("    <DefineTrace>true</DefineTrace>");
+            _str.AppendLine("    <OutputPath>bin\\Debug\\</OutputPath>");
+            _str.AppendLine("    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>");
+            _str.AppendLine("  </PropertyGroup>");
+            _str.AppendLine("  <PropertyGroup Condition=\" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' \">");
+            _str.AppendLine("    <DebugType>pdbonly</DebugType>");
+            _str.AppendLine("    <DefineDebug>false</DefineDebug>");
+            _str.AppendLine("    <DefineTrace>true</DefineTrace>");
+            _str.AppendLine("    <Optimize>true</Optimize>");
+            _str.AppendLine("    <OutputPath>bin\\Release\\</OutputPath>");
+            _str.AppendLine("    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>");
+            _str.AppendLine("  </PropertyGroup>");
+            _str.AppendLine("  <PropertyGroup>");
+            _str.AppendLine("    <OptionExplicit>On</OptionExplicit>");
+            _str.AppendLine("  </PropertyGroup>");
+            _str.AppendLine("  <PropertyGroup>");
+            _str.AppendLine("    <OptionCompare>Binary</OptionCompare>");
+            _str.AppendLine("  </PropertyGroup>");
+            _str.AppendLine("  <PropertyGroup>");
+            _str.AppendLine("    <OptionStrict>Off</OptionStrict>");
+            _str.AppendLine("  </PropertyGroup>");
+            _str.AppendLine("  <PropertyGroup>");
+            _str.AppendLine("    <OptionInfer>On</OptionInfer>");
+            _str.AppendLine("  </PropertyGroup>");
+
+            _str.AppendLine("  <ItemGroup>");
+            _str.AppendLine("    <Reference Include=\"System\" />");
+            _str.AppendLine("    <Reference Include=\"System.Data\" />");
+            _str.AppendLine("  </ItemGroup>");
+
+            _str.AppendLine("  <ItemGroup>");
+            _str.AppendLine("    <Import Include=\"Microsoft.VisualBasic\" />");
+            _str.AppendLine("    <Import Include=\"System\" />");
+            _str.AppendLine("    <Import Include=\"System.Data\" />");
+            _str.AppendLine("    <Import Include=\"System.Linq\" />");
+            _str.AppendLine("  </ItemGroup>");
+
+            _str.AppendLine("  <ItemGroup>");
+            foreach (var pasta in this._projeto.Pastas)
+            {
+                if (pasta.Arquivos.Any() | pasta.SubPastas.Any())
+                {
+                    _str.AppendLine(this.GetArquivosPasta("", pasta));
+                }
+            }
+            _str.AppendLine("  </ItemGroup>");
+
             _str.AppendLine("  <Import Project=\"$(MSBuildToolsPath)\\Microsoft.VisualBasic.targets\" />");
             _str.AppendLine("</Project>");
-
-
-
 
             _str.AppendLine("");
 
             return _str.ToString();
         }
+
+        private string GetArquivosPasta(string local, Pasta pasta)
+        {
+            var localSalvar = local;
+            if (localSalvar != "") {
+                localSalvar += "\\";
+            }
+
+            var _str = new StringBuilder();
+            foreach (Arquivo arquivo in pasta.Arquivos)
+            {
+                if (arquivo.GerouConteudoGeradoApenasUmaVez)
+                {
+                    var pathArquivo = localSalvar + arquivo.GetNomeParaSalvarGeradoUmaVEz();
+                    _str.AppendLine("    <Compile Include=\"" + pathArquivo + "\" />");
+                }
+                if (arquivo.GerouConteudoRegerado)
+                {
+                    var pathArquivo = localSalvar + arquivo.GetNomeParaSalvarRegeravel();
+                    _str.AppendLine("    <Compile Include=\"" + pathArquivo + "\" />");
+                }
+            }
+
+            foreach (var subPasta in pasta.SubPastas)
+            {
+                if (subPasta.Arquivos.Any() | subPasta.SubPastas.Any())
+                {
+                    _str.AppendLine(this.GetArquivosPasta(localSalvar + subPasta.Nome, subPasta));
+                }
+            }
+
+            return _str.ToString();
+        }
+
     }
 }

@@ -40,6 +40,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ProjetoBD\ArquivoTabela.cs" />
+    <Compile Include="ProjetoBD\ArquivoSqlProj.cs" />
+    <Compile Include="ProjetoBD\ProjetoBD.cs" />
+    <Compile Include="ProjetoDAL\ArquivoSQLCommands.cs" />
+    <Compile Include="ProjetoDAL\ArquivoNotMappeableBDAttribute.cs" />
+    <Compile Include="ProjetoDAL\ArquivoIStrConexao.cs" />
+    <Compile Include="ProjetoDAL\ArquivoBaseDAL.cs" />
     <Compile Include="ProjetoDAL\ArquivoDelegates.cs" />
     <Compile Include="ProjetoDAL\ArquivoVbProj.cs" />
     <Compile Include="ProjetoDAL\ArquivoEntidade.cs" />
@@ -64,5 +71,6 @@
       <Name>Codando.Shared</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

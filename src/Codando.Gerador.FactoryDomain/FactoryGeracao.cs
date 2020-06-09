@@ -14,6 +14,7 @@ namespace Codando.Gerador.FactoryDomain
 
             var solucao = new Solucao(parametrosGeracao.ConfigSolucao);
             solucao.Entidades = DefinirTiposAtributos(parametrosGeracao);
+            solucao.Projetos.Add(GetProjetoBD(parametrosGeracao, solucao));
             solucao.Projetos.Add(GetProjetoDAL(parametrosGeracao, solucao));
             return solucao;
 
@@ -41,6 +42,22 @@ namespace Codando.Gerador.FactoryDomain
 
             }
             return ret;
+        }
+
+        private Projeto GetProjetoBD(ParametrosGeracao parametrosGeracao, Solucao solucao)
+        {
+            if (parametrosGeracao.LinguagemGeracao == LinguagemGeracao.CSharp)
+            {
+                
+            }
+
+            if (parametrosGeracao.LinguagemGeracao == LinguagemGeracao.VisualBasic)
+            {
+                var projeto = new Domain.VisualBasic.ProjetoBD.ProjetoBD(solucao);
+                return projeto;
+            }
+
+            return null;
         }
 
         private Domain.Base.Projeto GetProjetoDAL(ParametrosGeracao parametrosGeracao, Solucao solucao)

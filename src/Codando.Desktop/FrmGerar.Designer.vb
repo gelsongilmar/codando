@@ -755,9 +755,10 @@ Partial Class FrmGerar
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.menuGeral)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.KeyPreview = True
         Me.MainMenuStrip = Me.menuGeral
         Me.Name = "FrmGerar"
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Codando"
         Me.menuGeral.ResumeLayout(False)
         Me.menuGeral.PerformLayout()

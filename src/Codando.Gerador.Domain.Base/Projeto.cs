@@ -7,7 +7,6 @@ namespace Codando.Gerador.Domain.Base
     {
         public string NomeProjeto { get; set; }
         public string ExtensaoProjeto { get; set; }
-        public string ExtensaoCodigo { get; set; }
         public string GuIdTipoProjeto { get; set; }
         public string GuIdProjeto { get; set; }
         public IList<Pasta> Pastas { get; set; } = new List<Pasta>();
