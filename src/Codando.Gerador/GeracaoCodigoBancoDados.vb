@@ -356,6 +356,7 @@ Public Class GeracaoCodigoBancoDados
         str.Append(" GO " + vbLf)
         Return str.ToString
     End Function
+
     Private Function GerarScriptProcedure_Delete(p_idTabela As String, p_nomeTabela As String, p_dtCampos As DataTable) As String
         Dim _isPossuiIdentidade As Boolean = p_dtCampos.Rows.OfType(Of DataRow).Where(Function(x) CBool(x.Item("IsIdentidade"))).Count() > 0
         Dim _isPossuiPK As Boolean = p_dtCampos.Rows.OfType(Of DataRow).Where(Function(x) CBool(x.Item("IsPK"))).Count() > 0

@@ -92,12 +92,13 @@ Public Class FrmGerar
     Private Sub btnGerar_Click(sender As Object, e As EventArgs) Handles btnGerar.Click
 
         If _configSelecionada Is Nothing Then Return
+        If _configGeracaoSelecionada Is Nothing Then Return
 
-        'Dim validacao As New ValidaConfiguracao(_configSelecionada)
-        'If Not validacao.IsValid() Then
-        '    ViewNotification.Show(validacao)
-        '    Return
-        'End If
+        Dim validacao As New Codando.Config.geracao.ValidaGeracao(_configGeracaoSelecionada)
+        If Not validacao.IsValid() Then
+            ViewNotification.Show(validacao)
+            Return
+        End If
 
         Dim _factory As New FactoryGeracao()
 
@@ -105,8 +106,6 @@ Public Class FrmGerar
 
         Dim motor As New Gerador.Motor.Gerador(_solucao)
         motor.Gerar(AddressOf ShowProgresso)
-
-        'MessageBox.Show("Geração realizada com sucesso", "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
     End Sub
 

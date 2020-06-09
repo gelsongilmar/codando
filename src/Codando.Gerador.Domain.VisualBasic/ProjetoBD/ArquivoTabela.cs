@@ -31,6 +31,12 @@ namespace Codando.Gerador.Domain.VisualBasic.ProjetoBD
                                 where c.IsPK
                                 select c).Any();
 
+            _str.AppendLine("--================ [ IMPORTANTE ] ================");
+            _str.AppendLine("-- Arquivo Regerável. Não altere este arquivo.");
+            _str.AppendLine("-- As alterações serão perdidas sempre que o");
+            _str.AppendLine("-- Codando for executado");
+            _str.AppendLine("--================================================");
+            _str.AppendLine("");
             _str.AppendLine(" CREATE TABLE " + this._entidade.Nome + " ( ");
 
             foreach (var campo in _campos)

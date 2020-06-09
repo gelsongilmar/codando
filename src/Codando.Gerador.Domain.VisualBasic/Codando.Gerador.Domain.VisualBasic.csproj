@@ -40,6 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ProjetoBD\ArquivoProcedureList.cs" />
+    <Compile Include="ProjetoBD\ArquivoProcedureSelect.cs" />
+    <Compile Include="ProjetoBD\ArquivoProcedureInsert.cs" />
+    <Compile Include="ProjetoBD\ArquivoProcedureUpdate.cs" />
+    <Compile Include="ProjetoBD\ArquivoProcedureDelete.cs" />
     <Compile Include="ProjetoBD\ArquivoTabela.cs" />
     <Compile Include="ProjetoBD\ArquivoSqlProj.cs" />
     <Compile Include="ProjetoBD\ProjetoBD.cs" />
@@ -51,6 +56,8 @@
     <Compile Include="ProjetoDAL\ArquivoVbProj.cs" />
     <Compile Include="ProjetoDAL\ArquivoEntidade.cs" />
     <Compile Include="ProjetoDAL\ProjetoDAL.cs" />
+    <Compile Include="ProjetoWeb\ArquivoVbProj.cs" />
+    <Compile Include="ProjetoWeb\ProjetoWeb.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TiposAtributo\FactoryTipoAtributo.cs" />
     <Compile Include="TiposAtributo\TipoAtributoData.cs" />

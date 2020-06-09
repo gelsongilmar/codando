@@ -110,7 +110,7 @@ Partial Class FrmGerar
         Me.menuGeral.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ArquivoToolStripMenuItem})
         Me.menuGeral.Location = New System.Drawing.Point(0, 0)
         Me.menuGeral.Name = "menuGeral"
-        Me.menuGeral.Size = New System.Drawing.Size(1008, 24)
+        Me.menuGeral.Size = New System.Drawing.Size(1001, 24)
         Me.menuGeral.TabIndex = 1
         Me.menuGeral.Text = "MenuStrip1"
         '
@@ -136,7 +136,7 @@ Partial Class FrmGerar
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 24)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1008, 31)
+        Me.Panel1.Size = New System.Drawing.Size(1001, 31)
         Me.Panel1.TabIndex = 2
         '
         'btnGerar
@@ -146,7 +146,7 @@ Partial Class FrmGerar
         Me.btnGerar.Dock = System.Windows.Forms.DockStyle.Right
         Me.btnGerar.Font = New System.Drawing.Font("Arial", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnGerar.ForeColor = System.Drawing.Color.White
-        Me.btnGerar.Location = New System.Drawing.Point(908, 0)
+        Me.btnGerar.Location = New System.Drawing.Point(901, 0)
         Me.btnGerar.Margin = New System.Windows.Forms.Padding(0)
         Me.btnGerar.Name = "btnGerar"
         Me.btnGerar.Size = New System.Drawing.Size(100, 31)
@@ -179,10 +179,10 @@ Partial Class FrmGerar
         Me.txtOutPut.BackColor = System.Drawing.SystemColors.Info
         Me.txtOutPut.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.txtOutPut.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.txtOutPut.Location = New System.Drawing.Point(0, 611)
+        Me.txtOutPut.Location = New System.Drawing.Point(0, 411)
         Me.txtOutPut.Multiline = True
         Me.txtOutPut.Name = "txtOutPut"
-        Me.txtOutPut.Size = New System.Drawing.Size(1008, 100)
+        Me.txtOutPut.Size = New System.Drawing.Size(1001, 100)
         Me.txtOutPut.TabIndex = 3
         '
         'Panel2
@@ -197,7 +197,7 @@ Partial Class FrmGerar
         Me.Panel2.Location = New System.Drawing.Point(0, 55)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Padding = New System.Windows.Forms.Padding(10)
-        Me.Panel2.Size = New System.Drawing.Size(250, 556)
+        Me.Panel2.Size = New System.Drawing.Size(250, 356)
         Me.Panel2.TabIndex = 4
         '
         'ltbEntidades
@@ -206,7 +206,7 @@ Partial Class FrmGerar
         Me.ltbEntidades.FormattingEnabled = True
         Me.ltbEntidades.Location = New System.Drawing.Point(10, 119)
         Me.ltbEntidades.Name = "ltbEntidades"
-        Me.ltbEntidades.Size = New System.Drawing.Size(228, 425)
+        Me.ltbEntidades.Size = New System.Drawing.Size(228, 225)
         Me.ltbEntidades.TabIndex = 9
         '
         'Panel4
@@ -288,7 +288,7 @@ Partial Class FrmGerar
         Me.pnlPropriedadesEntidade.Location = New System.Drawing.Point(250, 55)
         Me.pnlPropriedadesEntidade.Name = "pnlPropriedadesEntidade"
         Me.pnlPropriedadesEntidade.Padding = New System.Windows.Forms.Padding(10)
-        Me.pnlPropriedadesEntidade.Size = New System.Drawing.Size(250, 556)
+        Me.pnlPropriedadesEntidade.Size = New System.Drawing.Size(250, 356)
         Me.pnlPropriedadesEntidade.TabIndex = 5
         '
         'Panel15
@@ -365,7 +365,7 @@ Partial Class FrmGerar
         Me.pnlAtributos.Location = New System.Drawing.Point(500, 55)
         Me.pnlAtributos.Name = "pnlAtributos"
         Me.pnlAtributos.Padding = New System.Windows.Forms.Padding(10)
-        Me.pnlAtributos.Size = New System.Drawing.Size(250, 556)
+        Me.pnlAtributos.Size = New System.Drawing.Size(250, 356)
         Me.pnlAtributos.TabIndex = 6
         '
         'ltbAtributos
@@ -374,7 +374,7 @@ Partial Class FrmGerar
         Me.ltbAtributos.FormattingEnabled = True
         Me.ltbAtributos.Location = New System.Drawing.Point(10, 119)
         Me.ltbAtributos.Name = "ltbAtributos"
-        Me.ltbAtributos.Size = New System.Drawing.Size(228, 425)
+        Me.ltbAtributos.Size = New System.Drawing.Size(228, 225)
         Me.ltbAtributos.TabIndex = 10
         '
         'Panel14
@@ -463,13 +463,13 @@ Partial Class FrmGerar
         Me.pnlPropriedadeAtributos.Location = New System.Drawing.Point(750, 55)
         Me.pnlPropriedadeAtributos.Name = "pnlPropriedadeAtributos"
         Me.pnlPropriedadeAtributos.Padding = New System.Windows.Forms.Padding(10)
-        Me.pnlPropriedadeAtributos.Size = New System.Drawing.Size(250, 556)
+        Me.pnlPropriedadeAtributos.Size = New System.Drawing.Size(250, 356)
         Me.pnlPropriedadeAtributos.TabIndex = 7
         '
         'btnExcluirAtributo
         '
         Me.btnExcluirAtributo.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnExcluirAtributo.Location = New System.Drawing.Point(46, 510)
+        Me.btnExcluirAtributo.Location = New System.Drawing.Point(46, 237)
         Me.btnExcluirAtributo.Name = "btnExcluirAtributo"
         Me.btnExcluirAtributo.Padding = New System.Windows.Forms.Padding(5)
         Me.btnExcluirAtributo.Size = New System.Drawing.Size(93, 31)
@@ -480,7 +480,7 @@ Partial Class FrmGerar
         'btnSalvarPropriedadesAtributos
         '
         Me.btnSalvarPropriedadesAtributos.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSalvarPropriedadesAtributos.Location = New System.Drawing.Point(145, 510)
+        Me.btnSalvarPropriedadesAtributos.Location = New System.Drawing.Point(145, 237)
         Me.btnSalvarPropriedadesAtributos.Name = "btnSalvarPropriedadesAtributos"
         Me.btnSalvarPropriedadesAtributos.Padding = New System.Windows.Forms.Padding(5)
         Me.btnSalvarPropriedadesAtributos.Size = New System.Drawing.Size(93, 31)
@@ -746,7 +746,7 @@ Partial Class FrmGerar
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(1008, 711)
+        Me.ClientSize = New System.Drawing.Size(1001, 511)
         Me.Controls.Add(Me.pnlPropriedadeAtributos)
         Me.Controls.Add(Me.pnlAtributos)
         Me.Controls.Add(Me.pnlPropriedadesEntidade)

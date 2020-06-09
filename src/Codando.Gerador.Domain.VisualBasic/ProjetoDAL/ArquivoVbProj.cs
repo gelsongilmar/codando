@@ -19,7 +19,7 @@ namespace Codando.Gerador.Domain.VisualBasic.ProjetoDAL
             this.UsarArquivoSeparadoParaRegerar = false;
             this._projeto = projeto;
             this.Nome = this._projeto.NomeProjeto;
-            this.Extensao = ".vbproj";
+            this.Extensao = this._projeto.ExtensaoProjeto;
         }
 
         public override string GetConteudoGeradoApenasUmaVez()

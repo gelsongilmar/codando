@@ -59,7 +59,7 @@ namespace Codando.Gerador.Domain.VisualBasic.ProjetoDAL
                                         select a).Any();
 
             bool _isPossuiPK = (from a in atributos
-                                where a.IsPK 
+                                where a.IsPK
                                 select a).Any();
 
             _str.AppendLine("'================ [ IMPORTANTE ] ================");
@@ -108,29 +108,14 @@ namespace Codando.Gerador.Domain.VisualBasic.ProjetoDAL
             _str.AppendLine("        Dim conexao As New SqlConnection(Me._strConexao)");
             _str.AppendLine("        Dim comando As New SqlCommand(\"usp_" + this._entidade.Nome + "_Select\", conexao)");
 
-            if (_isPossuiIdentidade)
+            foreach (var atributo in atributos.Where(x => x.IsPK))
             {
-                foreach (var atributo in atributos.Where(x => x.IsAutoIncremento))
-                {
-                    string nomeCampoBD = atributo.Nome;
-                    string nomeCampoVbNet = atributo.Nome.PascalCasing();
-                    string nomeTipoDbType = ((TipoAtributoBaseGeracao)atributo.Tipo).ObterTipoSqlDbType(atributo.Tamanho);
+                string nomeCampoBD = atributo.Nome;
+                string nomeCampoVbNet = atributo.Nome.PascalCasing();
+                string nomeTipoDbType = ((TipoAtributoBaseGeracao)atributo.Tipo).ObterTipoSqlDbType(atributo.Tamanho);
 
-                    _str.AppendLine("");
-                    _str.AppendLine("        comando.Parameters.Add(\"@" + nomeCampoBD + "\", SqlDbType." + nomeTipoDbType + ").Value = Me." + nomeCampoVbNet + "");
-                }
-            }
-            else if (_isPossuiPK)
-            {
-                foreach (var atributo in atributos.Where(x => x.IsPK))
-                {
-                    string nomeCampoBD = atributo.Nome;
-                    string nomeCampoVbNet = atributo.Nome.PascalCasing();
-                    string nomeTipoDbType = ((TipoAtributoBaseGeracao)atributo.Tipo).ObterTipoSqlDbType(atributo.Tamanho);
-
-                    _str.AppendLine("");
-                    _str.AppendLine("        comando.Parameters.Add(\"@" + nomeCampoBD + "\", SqlDbType." + nomeTipoDbType + ").Value = Me." + nomeCampoVbNet);
-                }
+                _str.AppendLine("");
+                _str.AppendLine("        comando.Parameters.Add(\"@" + nomeCampoBD + "\", SqlDbType." + nomeTipoDbType + ").Value = Me." + nomeCampoVbNet);
             }
 
             _str.AppendLine("");
@@ -152,29 +137,14 @@ namespace Codando.Gerador.Domain.VisualBasic.ProjetoDAL
             _str.AppendLine("        Dim conexao As New SqlConnection(Me._strConexao)");
             _str.AppendLine("        Dim comando As New SqlCommand(\"usp_" + this._entidade.Nome + "_Update\", conexao)");
 
-            if (_isPossuiIdentidade)
+            foreach (var atributo in atributos.Where(x => x.IsPK))
             {
-                foreach (var atributo in atributos.Where(x => x.IsAutoIncremento))
-                {
-                    string nomeCampoBD = atributo.Nome;
-                    string nomeCampoVbNet = atributo.Nome.PascalCasing();
-                    string nomeTipoDbType = ((TipoAtributoBaseGeracao)atributo.Tipo).ObterTipoSqlDbType(atributo.Tamanho);
+                string nomeCampoBD = atributo.Nome;
+                string nomeCampoVbNet = atributo.Nome.PascalCasing();
+                string nomeTipoDbType = ((TipoAtributoBaseGeracao)atributo.Tipo).ObterTipoSqlDbType(atributo.Tamanho);
 
-                    _str.AppendLine("");
-                    _str.AppendLine("        comando.Parameters.Add(\"@" + nomeCampoBD + "\", SqlDbType." + nomeTipoDbType + ").Value = Me." + nomeCampoVbNet);
-                }
-            }
-            else if (_isPossuiPK)
-            {
-                foreach (var atributo in atributos.Where(x => x.IsPK))
-                {
-                    string nomeCampoBD = atributo.Nome;
-                    string nomeCampoVbNet = atributo.Nome.PascalCasing();
-                    string nomeTipoDbType = ((TipoAtributoBaseGeracao)atributo.Tipo).ObterTipoSqlDbType(atributo.Tamanho);
-
-                    _str.AppendLine("");
-                    _str.AppendLine("        comando.Parameters.Add(\"@" + nomeCampoBD + "\", SqlDbType." + nomeTipoDbType + ").Value = Me." + nomeCampoVbNet);
-                }
+                _str.AppendLine("");
+                _str.AppendLine("        comando.Parameters.Add(\"@" + nomeCampoBD + "\", SqlDbType." + nomeTipoDbType + ").Value = Me." + nomeCampoVbNet);
             }
 
             _str.AppendLine("        Me.PreencherParametros(comando)");
@@ -185,29 +155,14 @@ namespace Codando.Gerador.Domain.VisualBasic.ProjetoDAL
             _str.AppendLine("        Dim conexao As New SqlConnection(Me._strConexao)");
             _str.AppendLine("        Dim comando As New SqlCommand(\"usp_" + this._entidade.Nome + "_Delete\", conexao)");
 
-            if (_isPossuiIdentidade)
+            foreach (var atributo in atributos.Where(x => x.IsPK))
             {
-                foreach (var atributo in atributos.Where(x => x.IsAutoIncremento))
-                {
-                    string nomeCampoBD = atributo.Nome;
-                    string nomeCampoVbNet = atributo.Nome.PascalCasing();
-                    string nomeTipoDbType = ((TipoAtributoBaseGeracao)atributo.Tipo).ObterTipoSqlDbType(atributo.Tamanho);
+                string nomeCampoBD = atributo.Nome;
+                string nomeCampoVbNet = atributo.Nome.PascalCasing();
+                string nomeTipoDbType = ((TipoAtributoBaseGeracao)atributo.Tipo).ObterTipoSqlDbType(atributo.Tamanho);
 
-                    _str.AppendLine("");
-                    _str.AppendLine("        comando.Parameters.Add(\"@" + nomeCampoBD + "\", SqlDbType." + nomeTipoDbType + ").Value = Me." + nomeCampoVbNet);
-                }
-            }
-            else if (_isPossuiPK)
-            {
-                foreach (var atributo in atributos.Where(x => x.IsPK))
-                {
-                    string nomeCampoBD = atributo.Nome;
-                    string nomeCampoVbNet = atributo.Nome.PascalCasing();
-                    string nomeTipoDbType = ((TipoAtributoBaseGeracao)atributo.Tipo).ObterTipoSqlDbType(atributo.Tamanho);
-
-                    _str.AppendLine("");
-                    _str.AppendLine("        comando.Parameters.Add(\"@" + nomeCampoBD + "\", SqlDbType." + nomeTipoDbType + ").Value = Me." + nomeCampoVbNet);
-                }
+                _str.AppendLine("");
+                _str.AppendLine("        comando.Parameters.Add(\"@" + nomeCampoBD + "\", SqlDbType." + nomeTipoDbType + ").Value = Me." + nomeCampoVbNet);
             }
 
             _str.AppendLine("        return ExecutarComando(conexao, comando, false)");
@@ -219,7 +174,7 @@ namespace Codando.Gerador.Domain.VisualBasic.ProjetoDAL
             _str.AppendLine("");
             _str.AppendLine("    Private Sub PreencherParametros(cmd As SqlCommand)");
 
-            foreach (var atributo in atributos.Where(x => x.IsAutoIncremento))
+            foreach (var atributo in atributos.Where(x => !x.IsAutoIncremento))
             {
                 string nomeCampoBD = atributo.Nome;
                 string nomeCampoVbNet = atributo.Nome.PascalCasing();

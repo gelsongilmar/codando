@@ -48,6 +48,7 @@
     <Compile Include="Configuracao.cs" />
     <Compile Include="geracao\ConfiguracaoGeracao.cs" />
     <Compile Include="geracao\SolucaoGerada.cs" />
+    <Compile Include="geracao\ValidaGeracao.cs" />
     <Compile Include="old-remover-no-futuro\ConfigCodandoOld.cs" />
     <Compile Include="old-remover-no-futuro\ConfigCodandoSolucaoOld.cs" />
     <Compile Include="old-remover-no-futuro\ConfiguracaoOld.cs" />
